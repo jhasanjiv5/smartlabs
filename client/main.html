@@ -1,21 +1,79 @@
 <head>
   <title>smartBlock</title>
+    <link rel="text/stylesheet" href="lib/css.css">
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
-  {{> info}}
+    <div class="w3-container w3-teal">
+    <h1>Welcome to Meteor!</h1>
+    </div>
+  
+    {{#if currentUser}}
+         {{> dashboard}}
+            <div class="w3-container details">
+            <p>{{> hello}}</p>
+            <p>{{> info}}</p>
+            </div>
+    {{else}}
+        <div class="w3-card-4 loginPageClass">
+            <header class="w3-container w3-blue">
+            <h4>Please Login...</h4>
+            </header>
+            <div class="w3-container">
+            
+            <p>{{> login}}</p>
+            </div>
+            <footer class="w3-container w3-blue">
+            {{> registerlink}}
+            </footer>
+        </div>
+        
+        {{> register}}
+        
+    {{/if}}
+  
 </body>
 
 <template name="hello">
   <button>Click Me</button>
-  
 </template>
 
 <template name="info">
    {{#each player}}
     <p>{{text}}</p>
     {{/each}}
+</template>
+<template name="registerlink">
+    <p class="registerLinkClass">Register</p>
+</template>
+
+<template name="login">
+    <form>
+        <input type="email" name="loginEmail" placeholder="Email ID">
+        <input type="password" name="loginPassword" placeholder="Password">
+        <button type="submit">Login</button>
+        
+    </form>
+</template>
+<template name="dashboard ">
+    
+    <p class="logoutClass w3-container"><a href="#" class="logout">LogOut</a></p>
+    
+</template>
+<template name="register">
+    <div class="w3-card-4 registerClass" style="visibility:collapse">
+        <header class="w3-container w3-blue">
+            <p class="registerClose">Close[x]</p>
+        </header>
+       
+    <form>
+        <input type="email" name="registerEmail" placeholder="Email ID">
+        <input type="password" name="registerPassword" placeholder="Password">
+        <button type="submit">Register</button>
+    </form>
+        
+        <footer class="w3-container w3-blue">
+           ... 
+        </footer>
+    </div>
 </template>

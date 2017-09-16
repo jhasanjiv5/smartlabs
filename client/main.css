@@ -1,1 +1,33 @@
 /* CSS declarations go here */
+.registerClass{
+   margin: -25% 35%;
+}   
+.registerClass input, button{
+    margin: 5px; 
+}
+.registerLinkClass{
+    cursor:pointer;
+}
+button{
+    border: transparent;
+    border-radius: 15px;
+    background: linear-gradient(aliceblue,grey);
+    padding: 5px 20px;
+    cursor:pointer;
+}
+.registerClose{
+    text-align: end;
+    cursor:pointer;
+}
+.loginPageClass{
+    margin: 10% 35%; 
+}
+.logoutClass{
+    text-align: end;
+    cursor:pointer;
+    margin-top: -50px;
+    color:#FFF;
+}
+.details{
+    margin-top: 50px;
+}

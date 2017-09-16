@@ -3,6 +3,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { Mongo } from 'meteor/mongo';
 import './main.html';
 
+
 PlayersList = new Mongo.Collection('player');
 
 Template.hello.onCreated(function helloOnCreated() {
@@ -39,4 +40,59 @@ Template.info.helpers({
        return PlayersList.find();
    },
      
+});
+
+Template.register.events({
+        'submit form': function(event) {
+            event.preventDefault();
+            var emailVar=event.target.registerEmail.value;
+            var passwordVar=event.target.registerPassword.value;
+            Accounts.createUser({
+                email:emailVar,
+                password:CryptoJS.MD5(passwordVar).toString()
+            });
+            console.log("Form submitted!");
+            
+        },
+        'click .registerClose':function(event){
+            event.preventDefault();
+            document.getElementsByClassName("registerClass")[0].style.visibility="collapse"; 
+            
+            document.getElementsByClassName("loginPageClass")[0].style.visibility="visible"; 
+          
+        },
+});
+Template.login.events({
+        'submit form': function(event) {
+            event.preventDefault();
+            var emailVar=event.target.loginEmail.value;
+            var passwordVar=event.target.loginPassword.value;
+            Meteor.loginWithPassword(emailVar,CryptoJS.MD5(passwordVar).toString(),function(error){
+    if(error){
+        console.log(error.reason);
+        alert(error.reason)
+        }        
+          });
+        
+            
+        },
+});
+Template.dashboard.events({
+   'click .logout':function(event){
+    //event.preventDefault();
+    Meteor.logout();
+}, 
+});
+Template.registerlink.events({
+   'click .registerLinkClass':function(event){
+    event.preventDefault();
+    if(document.getElementsByClassName("registerClass")[0].style.visibility=="visible")
+        document.getElementsByClassName("registerClass")[0].style.visibility="collapse"; 
+       else
+           {
+             document.getElementsByClassName("registerClass")[0].style.visibility="visible"; 
+            document.getElementsByClassName("loginPageClass")[0].style.visibility="hidden"; 
+           }
+        
+}, 
 });
