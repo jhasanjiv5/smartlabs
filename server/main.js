@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
-PlayersList = new Mongo.Collection('player');
+Sensors= new Mongo.Collection('sensor');
+Records= new Mongo.Collection('record');
+Standards =new Mongo.Collection('standards');
 Meteor.startup(() => {
   // code to run on server at startup
     

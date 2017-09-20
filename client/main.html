@@ -4,17 +4,29 @@
 </head>
 
 <body>
-    <div class="w3-container w3-teal">
-    <h1>Welcome to Meteor!</h1>
+    <div class="w3-container w3-teal" style="background-image: url(/images/background.jpg); max-height: 200px; min-height: 150px">
+    <h1 style="text-shadow: black 3px 1px;">Water Pollution Monitoring System</h1>
+        
+            
     </div>
   
-    {{#if currentUser}}
-         {{> dashboard}}
-            <div class="w3-container details">
+    {{#if currentUser}} 
+         {{> logoutdash}}
+            <div class="details">
+<!--
             <p>{{> hello}}</p>
             <p>{{> info}}</p>
+-->
+            <ul class="menu">
+                <li><a href="#" class="dashboard" style="background:#4CAF50">Dashboard</a></li>
+                <li><a href="#" class="addSensors">Add Sensor</a></li>
+                <li><a href="#" class="updateBlockchain">Update Blockchain</a></li>
+            </ul>
+            <div class="content">
+            {{> Template.dynamic template=template_name }}
+            </div> 
             </div>
-    {{else}}
+        {{else}}
         <div class="w3-card-4 loginPageClass">
             <header class="w3-container w3-blue">
             <h4>Please Login...</h4>
@@ -31,22 +43,116 @@
         {{> register}}
         
     {{/if}}
-  
+  <footer class="w3-container w3-teal">
+         ...   
+  </footer>
 </body>
 
+<!--
 <template name="hello">
   <button>Click Me</button>
 </template>
 
-<template name="info">
-   {{#each player}}
-    <p>{{text}}</p>
+-->
+
+
+<template name="dashboardTemp">
+    
+    <form name="ranges" class="w3-card-4 card_margin">
+        <header class="w3-container w3-teal">
+        <h4>Add standard values</h4></header>
+        <div class="w3-container">
+        <label for="data11">PH level</label>
+        <br/>
+    <input type="Number" step="any" name="data11" placeholder="Upper Bound">
+    <input type="Number" step="any" name="data12" placeholder="Lower Bound">
+        <br/>
+            <label for="data21">Dissolved Oxygen(mg/l)</label>
+        <br/>
+    <input type="Number" step="any" name="data21" placeholder="Upper Bound">
+    <input type="Number" step="any" name="data22" placeholder="Lower Bound">
+        <br/>
+            <label for="data31">Nitrate(mg/l)</label>
+        <br/>
+    <input type="Number" step="any" name="data31" placeholder="Upper Bound">
+    <input type="Number" step="any" name="data32" placeholder="Lower Bound">
+            </div>
+        <br/>
+    <footer class="w3-container w3-teal">
+        <button type="submit">Add</button>
+        </footer>
+    </form>
+    <form name="show" class="w3-card-4 card_margin" >
+        <header class="w3-container w3-teal">
+        <h4>Show recent updates!</h4></header>
+        <div class="w3-container">
+        <input type="Text" name="SensorID" placeholder="SensorID">
+        <span name="showData">{{Data}}</span>
+        </div>
+        <footer class="w3-container w3-teal">
+        <button type="submit">Show</button>
+        </footer>
+            
+        </form>
+</template>
+<template name="addSensorsTemp">
+   <form>
+        
+        <div class="w3-container">
+        <h4>Add a new Sensor</h4>
+             
+        <input type="Text" name="deviceName" placeholder="Device Name">
+        <br/>
+        <input type="Text" name="company" placeholder="Company Name">
+        <br/>
+        <button type="submit">Add</button>
+                 
+        </div>
+    
+       </form>  
+    <div>
+    <h4>You already have listed:</h4>
+    {{#each sensor}}
+    <p>"<strong>{{deviceName}}</strong>" form Company: "<strong>{{companyName}}</strong>"</p>
     {{/each}}
+    </div>
+    
+</template>
+<template name="updateBlockChainTemp">
+    
+    <form>
+        
+        
+        <div class="w3-container">
+        <h4>Input the data received from the sensors</h4>
+        <label for="SensorID">Sensor ID</label>
+        <br/>
+        <input type="Text" name="SensorID" placeholder="SensorID">
+        <br/>
+        <label for="data11">PH level</label>
+        <br/>
+    <input type="Number" name="data11" placeholder="Upper Bound">
+    <input type="Number" name="data12" placeholder="Lower Bound">
+        <br/>
+            <label for="data21">Dissolved Oxygen</label>
+        <br/>
+    <input type="Number" name="data21" placeholder="Upper Bound">
+    <input type="Number" name="data22" placeholder="Lower Bound">
+        <br/>
+            <label for="data31">Nitrate</label>
+        <br/>
+    <input type="Number" name="data31" placeholder="Upper Bound">
+    <input type="Number" name="data32" placeholder="Lower Bound">
+        <br/>
+        
+        <button type="submit">Set</button>
+        </div>  
+         </form>
+   
 </template>
 <template name="registerlink">
     <p class="registerLinkClass">Register</p>
 </template>
-
 <template name="login">
     <form>
         <input type="email" name="loginEmail" placeholder="Email ID">
@@ -55,7 +161,7 @@
         
     </form>
 </template>
-<template name="dashboard ">
+<template name="logoutdash">
     
     <p class="logoutClass w3-container"><a href="#" class="logout">LogOut</a></p>
     
