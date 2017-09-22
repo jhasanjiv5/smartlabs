@@ -58,11 +58,11 @@
 
 <template name="dashboardTemp">
     
-    <form name="ranges" class="w3-card-4 card_margin">
+    <form  class="ranges w3-card-4 card_margin">
         <header class="w3-container w3-teal">
         <h4>Add standard values</h4></header>
-        <div class="w3-container">
-        <label for="data11">PH level</label>
+        <div  class="w3-container">
+        <label for="data11">Turbidity(FNU)</label>
         <br/>
     <input type="Number" step="any" name="data11" placeholder="Upper Bound">
     <input type="Number" step="any" name="data12" placeholder="Lower Bound">
@@ -76,6 +76,7 @@
         <br/>
     <input type="Number" step="any" name="data31" placeholder="Upper Bound">
     <input type="Number" step="any" name="data32" placeholder="Lower Bound">
+            
             </div>
         <br/>
     <footer class="w3-container w3-teal">
@@ -101,9 +102,9 @@
         <div class="w3-container">
         <h4>Add a new Sensor</h4>
              
-        <input type="Text" name="deviceName" placeholder="Device Name">
+        <input type="Text" name="deviceName" placeholder="Device Name" required="required">
         <br/>
-        <input type="Text" name="company" placeholder="Company Name">
+        <input type="Text" name="company" placeholder="Company Name" required="required">
         <br/>
         <button type="submit">Add</button>
                  
@@ -119,35 +120,39 @@
     
 </template>
 <template name="updateBlockChainTemp">
-    
+     <div class="w3-container">
     <form>
         
         
-        <div class="w3-container">
+       
         <h4>Input the data received from the sensors</h4>
-        <label for="SensorID">Sensor ID</label>
+        <label for="deviceID">Device ID</label>
         <br/>
-        <input type="Text" name="SensorID" placeholder="SensorID">
+        <select name="deviceID" required="required">
+            {{#each sensor}}
+            <option>{{deviceName}}</option>
+            {{/each}}
+        </select>
         <br/>
-        <label for="data11">PH level</label>
+        <label for="data11">Turbidity</label>
         <br/>
-    <input type="Number" name="data11" placeholder="Upper Bound">
-    <input type="Number" name="data12" placeholder="Lower Bound">
+    <input type="Number" step="any" name="data11" placeholder="data" >
+    
         <br/>
             <label for="data21">Dissolved Oxygen</label>
         <br/>
-    <input type="Number" name="data21" placeholder="Upper Bound">
-    <input type="Number" name="data22" placeholder="Lower Bound">
+    <input type="Number" step="any" name="data21" placeholder="data" >
+   
         <br/>
             <label for="data31">Nitrate</label>
         <br/>
-    <input type="Number" name="data31" placeholder="Upper Bound">
-    <input type="Number" name="data32" placeholder="Lower Bound">
+    <input type="Number" step="any" name="data31" placeholder="data" >
+    
         <br/>
         
         <button type="submit">Set</button>
-        </div>  
-         </form>
+         
+         </form></div> 
    
 </template>
 <template name="registerlink">

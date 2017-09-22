@@ -27,7 +27,7 @@ label{
     width: 50px;
     box-sizing: border-box;
 }
-input[type=text],input[type=number] {
+input[type=text],input[type=number] ,select{
     background-color: white;
     
     background-position: 10px 10px; 

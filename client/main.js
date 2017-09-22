@@ -82,7 +82,7 @@ Template.body.events({
 //});
 
 Template.dashboardTemp.events({
-  'submit ranges':function(event) {
+  'submit .ranges':function(event) {
        event.preventDefault();
       var data11=event.target.data11.value;
       var data12=event.target.data12.value;
@@ -90,26 +90,17 @@ Template.dashboardTemp.events({
       var data22=event.target.data22.value;
       var data31=event.target.data31.value;
       var data32=event.target.data32.value;
-      
-      Standards.insert({ "createdAt": new Date(),
-                        
-    "pollutant": [{
-          "name":"PH",
-          "up": data11,
-          "low": data12
-      }, 
-      {   "name":"Oxigen",
-          "up": data21,
-          "low": data22
-      }, 
-      {   "name":"Nitrate",
-          "up": data31,
-          "low": data32
-      }]
-                      
-});
+      try {
+      Standards.insert({
+          Turbidity:{up: data11,low: data12}, 
+          Oxigen:{up: data21,low: data22}, 
+          Nitrate:{up: data31,low: data32}
+          
+      });
       console.log("New standards are set!");
-  }
+  } catch (e) {
+   console.log(e);
+}}
 });
 Template.addSensorsTemp.helpers({
     sensor()
@@ -118,19 +109,58 @@ Template.addSensorsTemp.helpers({
     },
     
 });
+Template.updateBlockChainTemp.helpers({
+   sensor: function(){
+    return Sensors.find();
+    
+ }
+});
 Template.addSensorsTemp.events({
   'submit form':function(event) {
        event.preventDefault();
       var devicename=event.target.deviceName.value;
       var comapanyname=event.target.company.value;
-      Sensors.insert({ deviceName: devicename, 
+      try{Sensors.insert({ deviceName: devicename, 
                        companyName: comapanyname,
                       createdAt: new Date() 
                       });
       console.log("New device added!");
+      } catch (e) {
+    console.log(e);
+}}
+      
+  
+});
+
+var deviceid;   
+Template.updateBlockChainTemp.events({
+    
+    'change select': function(evt) {
+        deviceid=evt.target.value;
+    },
+  'submit form':function(event) {
+       event.preventDefault();
       
       
-  }
+      
+      var data11=event.target.data11.value;
+      
+      var data21=event.target.data21.value; 
+      var data31=event.target.data31.value;
+      
+      try {
+      Records.insert({
+          deviceID: deviceid,
+          record:[
+              {Turbidity: data11}, 
+              {Oxigen: data21}, 
+              {Nitrate: data31}
+          ] 
+      });
+      console.log("Added new Records from "+deviceid);
+  } catch (e) {
+    console.log(e);
+}}
 });
 Template.register.events({
         'submit form': function(event) {
