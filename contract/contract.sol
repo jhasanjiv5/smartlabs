@@ -36,7 +36,7 @@ contract setStandards{
     
     }
     mapping(bytes32=>receiveddata) public data;
-    function save(bytes32 key,uint16 x11,uint16 x21,uint16 x31) returns(bool flag)
+    function save(bytes32 key,uint16 x11,uint16 x21,uint16 x31) public returns(bool flag)
     {
         if(x11<Tlow||x11>Thigh)
         {
@@ -56,13 +56,23 @@ contract setStandards{
         return true;
     }
     function retrievedata(bytes32 key) public constant
-    returns(bytes32,uint16,uint16,uint16)
+    returns(bytes32 x,uint16 y,uint16 z,uint16 k)
     {
-        return(key,data[key].T,data[key].O,data[key].N);
+        x=key;
+        y=data[key].T;
+        z=data[key].O;
+        k=data[key].N;
+        return(x,y,z,k);
     }
     function retrievestandards() public constant
-    returns (uint16,uint16,uint16,uint16,uint16,uint16)
+    returns(uint16 a,uint16 b,uint16 c,uint16 d,uint16 e,uint16 f)
     {
-        return(Tlow,Thigh,Olow,Ohigh,Nlow,Nhigh);
+        a=Tlow;
+        b=Thigh;
+        c=Olow;
+        d=Ohigh;
+        e=Nlow;
+        f=Nhigh;
+        return(a,b,c,d,e,f);
     }
 }

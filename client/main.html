@@ -1,17 +1,22 @@
 <head>
   <title>smartBlock</title>
+    <link rel="text/stylesheet" href="http://fonts.googleapis.com/css?family=Lato" />
     <link rel="text/stylesheet" href="lib/css.css">
+    <link rel="text/stylesheet" href="lib/styles.css" />
+    <script src="http://www.webglearth.com/v2/api.js"></script>
+    <link rel="text/stylesheet" href="lib/jquery-jvectormap-2.0.3.css"/>
+    
+    
 </head>
 
 <body>
-    <div class="w3-container w3-teal" style="background-image: url(/images/background.jpg); max-height: 200px; min-height: 150px">
-    <h1 style="text-shadow: black 3px 1px;">Water Pollution Monitoring System</h1>
-        
-            
+    <div class="w3-container nameplate" style="min-height: 120px">
+    <h1>W<img src="images/globe.png" style="height: 30px;">rld Pollution Monitoring System</h1>     
     </div>
   
     {{#if currentUser}} 
-         {{> logoutdash}}
+    {{> logoutdash}}
+         
             <div class="details">
 <!--
             <p>{{> hello}}</p>
@@ -21,31 +26,59 @@
                 <li><a href="#" class="dashboard" style="background:#4CAF50">Dashboard</a></li>
                 <li><a href="#" class="addSensors">Add Sensor</a></li>
                 <li><a href="#" class="updateBlockchain">Update Blockchain</a></li>
+               
             </ul>
             <div class="content">
             {{> Template.dynamic template=template_name }}
             </div> 
             </div>
         {{else}}
-        <div class="w3-card-4 loginPageClass">
-            <header class="w3-container w3-blue">
-            <h4>Please Login...</h4>
-            </header>
+        
+       {{> register}}
+        
+        <div class="loginPageClass w3-card-4">
+            
+            <h4>Please Login!</h4>
+           
             <div class="w3-container">
             
             <p>{{> login}}</p>
+            
             </div>
-            <footer class="w3-container w3-blue">
+            
             {{> registerlink}}
-            </footer>
+           
+        </div>
+        <div class="getdetailsclass w3-card-4">
+            
+            <h4>World pollution indicator</h4>
+           
+            <div class="w3-container">
+            <p>{{> getdetails}}</p>
+            </div>
+            
+        </div>
+        <div class="earth">
+           
+            
+            
+            
+            {{> map}}
+            
+            
+        </div>
+        <div class="chart w3-card-4">
+            
+            <h4>The result is:</h4>
+            
+            <div class="w3-container">
+            <p>{{> showdetails}}</p>
+            </div>
+            
         </div>
         
-        {{> register}}
-        
     {{/if}}
-  <footer class="w3-container w3-teal">
-         ...   
-  </footer>
+  
 </body>
 
 <!--
@@ -54,13 +87,63 @@
 </template>
 
 -->
+<template name="map">
+<!--
+    <div id="earth_div"></div>
+    
 
+-->
+  
+  <div id="world-map" style="width: 100%; height: 550px;">{{renderMap}}</div>
+    
+  </template>
+<template name="showdetails">
+    
+</template>
+<template name="getdetails">
+    
+    <form style="display: block;">
+        
+        <label for="country">Select Country</label>
+        <br/>
+        <select name="country" required="required">
+            {{#each sensor}}
+            <option>{{deviceName}}</option>
+            {{/each}}
+        </select>
+            <br/>
+        <label for="region">Select Region</label>
+        <br/>    
+        <select name="region">
+            {{#each sensor}}
+            <option>{{deviceName}}</option>
+            {{/each}}
+        </select>
+        <br/>
+        <label for="location">Select Loaction</label>
+        <br/>
+        <select name="location">
+            {{#each sensor}}
+            <option>{{deviceName}}</option>
+            {{/each}}
+        </select>
+        
+        <br/>
+        <button type="submit">Show</button> 
+        <br/>  
+        <span name="avg_turbidity"></span><br/>
+        <span name="avg_oxigen"></span><br/>
+        <span name="avg_nitrate"></span>
+            
+    </form>
+    
+</template>
 
 <template name="dashboardTemp">
     
     <form  class="ranges w3-card-4 card_margin">
-        <header class="w3-container w3-teal">
-        <h4>Add standard values</h4></header>
+        
+        <h4>Add standard values</h4>
         <div  class="w3-container">
         <label for="data11">Turbidity(FNU)</label>
         <br/>
@@ -79,22 +162,40 @@
             
             </div>
         <br/>
-    <footer class="w3-container w3-teal">
+    
         <button type="submit">Add</button>
-        </footer>
+        
     </form>
-    <form name="show" class="w3-card-4 card_margin" >
-        <header class="w3-container w3-teal">
-        <h4>Show recent updates!</h4></header>
+    <form class="show w3-card-4 card_margin" >
+        
+        <h4>Show recent updates!</h4>
         <div class="w3-container">
-        <input type="Text" name="SensorID" placeholder="SensorID">
-        <span name="showData">{{Data}}</span>
+        <input type="Text" name="SensorID" placeholder="SensorID" required="required">
+        <br/>
+            
+        <span name="deviceID"></span><br/>
+            <br/>
+        <span name="turbidity"></span><br/>
+        <span name="oxigen"></span><br/>
+        <span name="nitrate"></span>
         </div>
-        <footer class="w3-container w3-teal">
+        
         <button type="submit">Show</button>
-        </footer>
+        
             
         </form>
+    <div class="standards w3-card-4 card_margin" >
+        
+        <h4>New Standards according to WHO are </h4>
+       
+        <div class="w3-container">   
+        <span name="turbiditystd">{{standards}} </span><br/>
+        <span name="oxigenstd">{{standards}} </span><br/>
+        <span name="nitratestd">{{standards}} </span>
+        </div>
+        
+            
+        </div>
 </template>
 <template name="addSensorsTemp">
    <form>
@@ -149,7 +250,8 @@
     <input type="Number" step="any" name="data31" placeholder="data" >
     
         <br/>
-        
+        <span name="result"></span>
+        <br/>
         <button type="submit">Set</button>
          
          </form></div> 
@@ -168,11 +270,12 @@
 </template>
 <template name="logoutdash">
     
-    <p class="logoutClass w3-container"><a href="#" class="logout">LogOut</a></p>
+    <p class="logoutClass"><a href="#" class="logout">LogOut</a></p>
     
 </template>
 <template name="register">
     <div class="w3-card-4 registerClass" style="visibility:collapse">
+        
         <header class="w3-container w3-blue">
             <p class="registerClose">Close[x]</p>
         </header>
@@ -183,8 +286,6 @@
         <button type="submit">Register</button>
     </form>
         
-        <footer class="w3-container w3-blue">
-           ... 
-        </footer>
+        
     </div>
 </template>

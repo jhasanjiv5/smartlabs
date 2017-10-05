@@ -1,13 +1,39 @@
 /* CSS declarations go here */
 
+body
+{
+    background: url("images/comback.jpg");
+    
+    background-repeat-y: no-repeat;
+}
 .registerClass{
-   margin: -25% 35%;
+/*   margin: -25% 35%;*/
+    height: 200px;
+    color: #ffffff;
+    width: 30%;
+    padding: 10px;
+    left: 0;
+    margin-top: 5px;
+    margin-left: 5px;
+     
 }   
 .registerClass input, button{ 
     margin: 5px; 
 }
 .registerLinkClass{
     cursor:pointer;
+}
+.registerLinkClass:hover{
+    color:#16a3b4;
+}
+.getdetailsclass
+{
+    color: #ffffff;
+    width: 30%;
+    padding: 10px;
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
 }
 /*
 button{
@@ -38,27 +64,40 @@ input[type=text],input[type=number] ,select{
     padding-left: 40px;
 }
 input[type=button], input[type=submit], input[type=reset], button {
-    background-color: #4CAF50;
+    background-color: #0c6cb7;
     border: none;
     color: white;
-    padding: 16px 32px;
+    padding: 5px 25px;
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+    border-radius: 5px;
 }
-
+input[type=button], input[type=submit], input[type=reset], button:hover{
+    background:#16a3b4;
+}
 .registerClose{
-    text-align: end;
+/*    text-align: end;*/
     cursor:pointer;
 }
 .loginPageClass{
-    margin: 10% 35%; 
+    margin-top: -195px;
+    margin-left: 5px;
+/*    margin: 10% 35%; */
+    
+    left: 0;
+    color: #ffffff;
+    width: 30%;
+    padding: 10px;
 }
 .logoutClass{
     text-align: end;
-    cursor:pointer;
+    /* cursor: pointer; */
     margin-top: -50px;
-    color:#FFF;
+     color: #FFF; 
+}
+a{
+    text-decoration: none;
 }
 .details{
     margin-top: 25px;
@@ -68,10 +107,10 @@ input[type=button], input[type=submit], input[type=reset], button {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
-    box-shadow: 0px 3px 10px darkgrey;
+    background-color: rgba(110, 110, 110, 0.42);
+    box-shadow: 0px 0px 0px rgba(82, 82, 82, 0.78);
 }
-form{
+form, .standards{
     display: table;
 }
 
@@ -97,4 +136,38 @@ li a:hover {
 .content
 {
     display: flex;
+}
+.cesium-credit-textContainer
+{
+    display: none;
+}
+.earth{
+    width: 65%;
+    float: right;
+    margin-top: -225px;
+    margin-right: 10px;
+}
+.chart{
+    display: none;
+    width: 65%;
+    float: right;
+    margin-top: -225px;
+    margin-right: 10px;
+}
+#world-map
+{
+    
+    
+}
+.nameplate{
+    min-height: 120px;
+    text-align: center;
+    /* margin: auto; */
+    /* font-family: serif; */
+    color: #ffffff;
+    background: transparent;
+    padding: 25px;
+    box-shadow: 0px 0px 200px 0px rgba(255, 255, 255, 0.25) inset;
+    border-bottom: .5px rgba(178, 174, 174, 0.56) solid;
+    text-shadow: 4px 0px 20px rgba(0, 0, 0, 0.65);
 }
