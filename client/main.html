@@ -5,7 +5,7 @@
     <link rel="text/stylesheet" href="lib/styles.css" />
     <script src="http://www.webglearth.com/v2/api.js"></script>
     <link rel="text/stylesheet" href="lib/jquery-jvectormap-2.0.3.css"/>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.min.js"></script>
     
 </head>
 
@@ -61,7 +61,7 @@
         <div class="earth">
            
             
-            
+            <h4 style="color:#fff">Hover on the map to see some recent updates</h4>
             
             {{> map}}
             
@@ -69,7 +69,7 @@
         </div>
         <div class="chart w3-card-4">
             
-            <h4>The result is:</h4>
+            <h5>The pollution record has reached some new peaks!</h5>
             
             <div class="w3-container">
             <p>{{> showdetails}}</p>
@@ -78,6 +78,8 @@
         </div>
         
     {{/if}}
+  
+    
   
 </body>
 
@@ -90,42 +92,42 @@
 <template name="map">
 <!--
     <div id="earth_div"></div>
-    
-
 -->
-  
   <div id="world-map" style="width: 100%; height: 550px;">{{renderMap}}</div>
-    
-  </template>
+  
+</template>
+
 <template name="showdetails">
     
+    <p class="chartClose">Close[x]</p>
+   
+    <canvas id="myChart" style="width: 100%; height: 350px;"></canvas>
 </template>
 <template name="getdetails">
     
     <form style="display: block;">
         
-        <label for="country">Select Country</label>
+        <label for="country" >Select Country</label>
         <br/>
-        <select name="country" required="required">
-            {{#each sensor}}
-            <option>{{deviceName}}</option>
+        <select name="country" id="countryID">
+            <option></option>
+            {{#each country}}
+            <option>{{countryName}}</option>
             {{/each}}
         </select>
             <br/>
-        <label for="region">Select Region</label>
-        <br/>    
-        <select name="region">
-            {{#each sensor}}
-            <option>{{deviceName}}</option>
-            {{/each}}
+        <label for="mode">Select Mode</label>
+        <br/>
+        <select name="mode" id="modeID">
+            <option></option>
+            <option>Air</option>
+            <option>Water</option>
         </select>
         <br/>
-        <label for="location">Select Loaction</label>
+        <label for="parameter" >Select Parameter</label>
         <br/>
-        <select name="location">
-            {{#each sensor}}
-            <option>{{deviceName}}</option>
-            {{/each}}
+        <select name="parameter" id="parameterID">
+        <option></option>
         </select>
         
         <br/>
@@ -145,20 +147,25 @@
         
         <h4>Add standard values</h4>
         <div  class="w3-container">
-        <label for="data11">Turbidity(FNU)</label>
+        <label for="data11">CO(PPM)</label>
         <br/>
     <input type="Number" step="any" name="data11" placeholder="Upper Bound">
     <input type="Number" step="any" name="data12" placeholder="Lower Bound">
         <br/>
-            <label for="data21">Dissolved Oxygen(mg/l)</label>
+            <label for="data21">CO2(PPM)</label>
         <br/>
     <input type="Number" step="any" name="data21" placeholder="Upper Bound">
     <input type="Number" step="any" name="data22" placeholder="Lower Bound">
         <br/>
-            <label for="data31">Nitrate(mg/l)</label>
+            <label for="data31">PH</label>
         <br/>
     <input type="Number" step="any" name="data31" placeholder="Upper Bound">
     <input type="Number" step="any" name="data32" placeholder="Lower Bound">
+            <br/>
+            <label for="data41">Turbidity</label>
+        <br/>
+    <input type="Number" step="any" name="data41" placeholder="Upper Bound">
+    <input type="Number" step="any" name="data42" placeholder="Lower Bound">
             
             </div>
         <br/>
@@ -175,9 +182,10 @@
             
         <span name="deviceID"></span><br/>
             <br/>
-        <span name="turbidity"></span><br/>
-        <span name="oxigen"></span><br/>
-        <span name="nitrate"></span>
+        <span name="CO"></span><br/>
+        <span name="CO2"></span><br/>
+        <span name="PH"></span><br/>
+        <span name="Turbidity"></span>
         </div>
         
         <button type="submit">Show</button>
@@ -189,72 +197,145 @@
         <h4>New Standards according to WHO are </h4>
        
         <div class="w3-container">   
-        <span name="turbiditystd">{{standards}} </span><br/>
-        <span name="oxigenstd">{{standards}} </span><br/>
-        <span name="nitratestd">{{standards}} </span>
+        <span name="costd">{{standards}} </span><br/>
+        <span name="co2std">{{standards}} </span><br/>
+        <span name="phstd">{{standards}} </span><br/>
+        <span name="tubiditystd">{{standards}} </span>
+            
         </div>
         
             
         </div>
 </template>
+
 <template name="addSensorsTemp">
-   <form>
+   <form class="addsensor" style="margin:10px">
         
         <div class="w3-container">
         <h4>Add a new Sensor</h4>
-             
-        <input type="Text" name="deviceName" placeholder="Device Name" required="required">
+        <label for="country">Select Country</label>
         <br/>
-        <input type="Text" name="company" placeholder="Company Name" required="required">
+        <select name="country" id="countryselect">
+            <option></option>
+            {{#each country}}
+            <option>{{countryName}}</option>
+            {{/each}}
+            
+        </select>
+        <br/>
+        <label for="region">Select Region</label>
+        <br/>
+        <select name="region" id="regionselect">
+           
+            
+        </select>
+        <br/>
+        <label for="mode">Select Mode</label>
+        <br/>
+        <select name="mode" id="modeselect">
+            <option></option>
+            <option>Air</option>
+            <option>Water</option>
+            
+        </select>
+        <br/>
+        <input type="Text" name="deviceName" placeholder="Device Name" required="required">
         <br/>
         <button type="submit">Add</button>
                  
         </div>
     
-       </form>  
-    <div>
-    <h4>You already have listed:</h4>
-    {{#each sensor}}
-    <p>"<strong>{{deviceName}}</strong>" form Company: "<strong>{{companyName}}</strong>"</p>
-    {{/each}}
-    </div>
+       </form> 
+    
+    <form class="addcountry" style="margin:10px">
+        <div class="w3-container">
+        <br/>
+        <h4>Add new location</h4>
+        <label for="data31">Contry name</label>
+        <br/>
+        <select name="country" id="countryselectchoose">
+            <option></option>
+            <option>add new</option>
+            {{#each country}}
+            <option>{{countryName}}</option>
+            {{/each}}
+            
+        </select>
+        <input type="Text" id="countrynameadd" placeholder="Country name" style="display: none">
+    
+        <br/>
+        <label for="data31">New installation region</label>
+        <br/>
+        <input type="Text" name="regionnameadd" placeholder="Region name" >
+        <br/>
+        <button type="submit">Add installation</button>
+        <br/>
+        </div>
+    </form> 
+    
     
 </template>
 <template name="updateBlockChainTemp">
-     <div class="w3-container">
-    <form>
-        
-        
-       
+     
+    <form style="margin:10px">
+        <div class="w3-container">
         <h4>Input the data received from the sensors</h4>
-        <label for="deviceID">Device ID</label>
+        
+        <label for="country">Select Country</label>
         <br/>
-        <select name="deviceID" required="required">
-            {{#each sensor}}
-            <option>{{deviceName}}</option>
+        <select name="country" class="countryselect">
+            
+             <option></option>
+            {{#each country}}
+            <option>{{countryName}}</option>
             {{/each}}
+            
         </select>
         <br/>
-        <label for="data11">Turbidity</label>
+            <label for="region">Select Region</label>
+        <br/>
+        <select name="region" class="regionselect">
+            <option></option>
+        </select>
+            <br/>
+        <label for="device">Device ID</label>
+        <br/>
+        <select name="device" id="deviceID" required="required">
+            <option></option>
+        </select>
+        <br/>
+            <div id="air" style="display: none">
+        <p>Please add Air pollution details:</p>
+        <label for="data31">CO</label>
+        <br/>
+    <input type="Number" step="any" name="data41" placeholder="data" >
+    
+        <br/>
+        <label for="data31">CO2</label>
+        <br/>
+    <input type="Number" step="any" name="data51" placeholder="data" >
+    
+        <br/>
+            </div>
+             <div id="water" style="display: none">
+         <p>Please add Water pollution details:</p>
+        <label for="data11">PH</label>
         <br/>
     <input type="Number" step="any" name="data11" placeholder="data" >
     
         <br/>
-            <label for="data21">Dissolved Oxygen</label>
+            <label for="data21">Turbidity</label>
         <br/>
     <input type="Number" step="any" name="data21" placeholder="data" >
    
-        <br/>
-            <label for="data31">Nitrate</label>
-        <br/>
-    <input type="Number" step="any" name="data31" placeholder="data" >
-    
-        <br/>
+        
+            </div> 
+    <br/>
         <span name="result"></span>
         <br/>
         <button type="submit">Set</button>
-         
-         </form></div> 
+         </div> 
+         </form>
    
 </template>
 <template name="registerlink">
@@ -276,11 +357,10 @@
 <template name="register">
     <div class="w3-card-4 registerClass" style="visibility:collapse">
         
-        <header class="w3-container w3-blue">
+        
             <p class="registerClose">Close[x]</p>
-        </header>
        
-    <form>
+    <form class="w3-container">
         <input type="email" name="registerEmail" placeholder="Email ID">
         <input type="password" name="registerPassword" placeholder="Password">
         <button type="submit">Register</button>
