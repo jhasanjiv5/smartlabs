@@ -25,11 +25,11 @@ Records= new Mongo.Collection('record');
 Standards =new Mongo.Collection('standard');
 Locations =new Mongo.Collection('location');
 
-ABIarray=[{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"data","outputs":[{"name":"T","type":"uint16"},{"name":"O","type":"uint16"},{"name":"N","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"key","type":"bytes32"},{"name":"x11","type":"uint16"},{"name":"x21","type":"uint16"},{"name":"x31","type":"uint16"}],"name":"save","outputs":[{"name":"flag","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"key","type":"bytes32"}],"name":"retrievedata","outputs":[{"name":"x","type":"bytes32"},{"name":"y","type":"uint16"},{"name":"z","type":"uint16"},{"name":"k","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"retrievestandards","outputs":[{"name":"a","type":"uint16"},{"name":"b","type":"uint16"},{"name":"c","type":"uint16"},{"name":"d","type":"uint16"},{"name":"e","type":"uint16"},{"name":"f","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"data11","type":"uint16"},{"name":"data12","type":"uint16"},{"name":"data21","type":"uint16"},{"name":"data22","type":"uint16"},{"name":"data31","type":"uint16"},{"name":"data32","type":"uint16"}],"name":"store","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}];
+ABIarray=[{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"data","outputs":[{"name":"countryname","type":"bytes32"},{"name":"regionname","type":"bytes32"},{"name":"CO","type":"uint16"},{"name":"CO2","type":"uint16"},{"name":"Turbidity","type":"uint16"},{"name":"PH","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"Country","type":"bytes32"}],"name":"showflag","outputs":[{"name":"j","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"x11","type":"uint16"},{"name":"x21","type":"uint16"},{"name":"x31","type":"uint16"},{"name":"x41","type":"uint16"}],"name":"compare","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"Country","type":"bytes32"},{"name":"Location","type":"bytes32"},{"name":"deviceID","type":"bytes32"},{"name":"x11","type":"uint16"},{"name":"x21","type":"uint16"},{"name":"x31","type":"uint16"},{"name":"x41","type":"uint16"}],"name":"save","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"Country","type":"bytes32"},{"name":"Location","type":"bytes32"},{"name":"deviceID","type":"bytes32"}],"name":"retrievedata","outputs":[{"name":"x","type":"bytes32"},{"name":"y","type":"uint16"},{"name":"z","type":"uint16"},{"name":"k","type":"uint16"},{"name":"j","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"cdata","outputs":[{"name":"flag","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"msg","type":"string"}],"name":"show","type":"event"}];
 
-contractAddress="0x2f6f38e45b88910a90cfc3b4166b6c6debf28574";
+contractAddress="0xe61262107b507aa385e5dcea1563d4495e5528a6";
 
-bytedata="6060604052341561000f57600080fd5b6106b08061001e6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630147fb0c146100695780632466d88c146100ca5780636b29ea6414610130578063db86c5ff146101a0578063f06ee7ae1461021c57600080fd5b341561007457600080fd5b61008e60048080356000191690602001909190505061029c565b604051808461ffff1661ffff1681526020018361ffff1661ffff1681526020018261ffff1661ffff168152602001935050505060405180910390f35b34156100d557600080fd5b61011660048080356000191690602001909190803561ffff1690602001909190803561ffff1690602001909190803561ffff169060200190919050506102f0565b604051808215151515815260200191505060405180910390f35b341561013b57600080fd5b61015560048080356000191690602001909190505061048a565b6040518085600019166000191681526020018461ffff1661ffff1681526020018361ffff1661ffff1681526020018261ffff1661ffff16815260200194505050505060405180910390f35b34156101ab57600080fd5b6101b3610533565b604051808761ffff1661ffff1681526020018661ffff1661ffff1681526020018561ffff1661ffff1681526020018461ffff1661ffff1681526020018361ffff1661ffff1681526020018261ffff1661ffff168152602001965050505050505060405180910390f35b341561022757600080fd5b610282600480803561ffff1690602001909190803561ffff1690602001909190803561ffff1690602001909190803561ffff1690602001909190803561ffff1690602001909190803561ffff169060200190919050506105c7565b604051808215151515815260200191505060405180910390f35b60016020528060005260406000206000915090508060000160009054906101000a900461ffff16908060000160029054906101000a900461ffff16908060000160049054906101000a900461ffff16905083565b60008060009054906101000a900461ffff1661ffff168461ffff16108061032e5750600060029054906101000a900461ffff1661ffff168461ffff16115b1561033c5760009050610482565b600060049054906101000a900461ffff1661ffff168361ffff1610806103795750600060069054906101000a900461ffff1661ffff168361ffff16115b156103875760009050610482565b600060089054906101000a900461ffff1661ffff168261ffff1610806103c457506000600a9054906101000a900461ffff1661ffff168261ffff16115b156103d25760009050610482565b8360016000876000191660001916815260200190815260200160002060000160006101000a81548161ffff021916908361ffff1602179055508260016000876000191660001916815260200190815260200160002060000160026101000a81548161ffff021916908361ffff1602179055508160016000876000191660001916815260200190815260200160002060000160046101000a81548161ffff021916908361ffff160217905550600190505b949350505050565b60008060008084935060016000866000191660001916815260200190815260200160002060000160009054906101000a900461ffff16925060016000866000191660001916815260200190815260200160002060000160029054906101000a900461ffff16915060016000866000191660001916815260200190815260200160002060000160049054906101000a900461ffff1690508383838393509350935093509193509193565b6000806000806000806000809054906101000a900461ffff169550600060029054906101000a900461ffff169450600060049054906101000a900461ffff169350600060069054906101000a900461ffff169250600060089054906101000a900461ffff1691506000600a9054906101000a900461ffff169050858585858585955095509550955095509550909192939495565b6000866000806101000a81548161ffff021916908361ffff16021790555085600060026101000a81548161ffff021916908361ffff16021790555084600060046101000a81548161ffff021916908361ffff16021790555083600060066101000a81548161ffff021916908361ffff16021790555082600060086101000a81548161ffff021916908361ffff160217905550816000600a6101000a81548161ffff021916908361ffff1602179055506001905096955050505050505600a165627a7a723058206534c5cb87f48d49827889509158f538dc3f06ad9c7f7d7a1987284ea048b6890029";
+bytedata="6060604052341561000f57600080fd5b610b5c8061001e6000396000f300606060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630147fb0c1461007d5780631b93097a1461010b5780635a388f2c1461014a57806379b02baf146101b0578063b2166dad1461023d578063edc399b2146102d6575b600080fd5b341561008857600080fd5b6100a2600480803560001916906020019091905050610315565b60405180876000191660001916815260200186600019166000191681526020018561ffff1661ffff1681526020018461ffff1661ffff1681526020018361ffff1661ffff1681526020018261ffff1661ffff168152602001965050505050505060405180910390f35b341561011657600080fd5b610130600480803560001916906020019091905050610389565b604051808215151515815260200191505060405180910390f35b341561015557600080fd5b610196600480803561ffff1690602001909190803561ffff1690602001909190803561ffff1690602001909190803561ffff169060200190919050506103bd565b604051808215151515815260200191505060405180910390f35b34156101bb57600080fd5b610223600480803560001916906020019091908035600019169060200190919080356000191690602001909190803561ffff1690602001909190803561ffff1690602001909190803561ffff1690602001909190803561ffff169060200190919050506106c7565b604051808215151515815260200191505060405180910390f35b341561024857600080fd5b61027c60048080356000191690602001909190803560001916906020019091908035600019169060200190919050506109bf565b6040518086600019166000191681526020018561ffff1661ffff1681526020018461ffff1661ffff1681526020018361ffff1661ffff1681526020018261ffff1661ffff1681526020019550505050505060405180910390f35b34156102e157600080fd5b6102fb600480803560001916906020019091905050610b05565b604051808215151515815260200191505060405180910390f35b60016020528060005260406000206000915090508060000154908060010154908060020160009054906101000a900461ffff16908060020160029054906101000a900461ffff16908060020160049054906101000a900461ffff16908060020160069054906101000a900461ffff16905086565b6000806000836000191660001916815260200190815260200160002060000160009054906101000a900460ff169050919050565b60008060019050600961ffff168661ffff1610806103e35750602361ffff168661ffff16115b80156103f3575060008661ffff16115b1561048b577fbe025cd0737d1912c421eb1ace55f3a811fccb8c5a479c1d21f0882dc11c607f6040518080602001828103825260248152602001807f434f20696e207468652061697220686173207265616368656420746865206c6981526020017f6d6974730000000000000000000000000000000000000000000000000000000081525060400191505060405180910390a1600090505b60fa61ffff168561ffff1610806104ab575061015e61ffff168561ffff16115b80156104bb575060008561ffff16115b15610553577fbe025cd0737d1912c421eb1ace55f3a811fccb8c5a479c1d21f0882dc11c607f6040518080602001828103825260258152602001807f434f3220696e207468652061697220686173207265616368656420746865206c81526020017f696d69747300000000000000000000000000000000000000000000000000000081525060400191505060405180910390a1600090505b600061ffff168461ffff1610806105725750600561ffff168461ffff16115b8015610582575060008461ffff16115b1561061a577fbe025cd0737d1912c421eb1ace55f3a811fccb8c5a479c1d21f0882dc11c607f6040518080602001828103825260268152602001807f576174657220547572626964697479206861732072656163686564207468652081526020017f6c696d697473000000000000000000000000000000000000000000000000000081525060400191505060405180910390a1600090505b600661ffff168361ffff1610806106395750600961ffff168361ffff16115b8015610649575060008361ffff16115b156106bb577fbe025cd0737d1912c421eb1ace55f3a811fccb8c5a479c1d21f0882dc11c607f60405180806020018281038252601f8152602001807f576174657220504820686173207265616368656420746865206c696d6974730081525060200191505060405180910390a1600090505b80915050949350505050565b6000806106d6868686866103bd565b90508860016000896000191660001916815260200190815260200160002060000181600019169055508760016000896000191660001916815260200190815260200160002060010181600019169055508560016000896000191660001916815260200190815260200160002060020160006101000a81548161ffff021916908361ffff1602179055508460016000896000191660001916815260200190815260200160002060020160026101000a81548161ffff021916908361ffff1602179055508360016000896000191660001916815260200190815260200160002060020160046101000a81548161ffff021916908361ffff1602179055508260016000896000191660001916815260200190815260200160002060020160066101000a81548161ffff021916908361ffff160217905550806000808b6000191660001916815260200190815260200160002060000160006101000a81548160ff02191690831515021790555080156108d8577fbe025cd0737d1912c421eb1ace55f3a811fccb8c5a479c1d21f0882dc11c607f6040518080602001828103825260378152602001807f4e6f20766f696c6174696f6e20666f756e642c2064617461206e6f742073746f81526020017f726564206f6e746f2074686520626c6f636b636861696e00000000000000000081525060400191505060405180910390a16109b3565b7fbe025cd0737d1912c421eb1ace55f3a811fccb8c5a479c1d21f0882dc11c607f60405180806020018281038252606b8152602001807f536f7272792c2064756520746f207468652061626f7665207374616e6461726481526020017f20766f696c6174696f6e73206461746120686173206265656e2073746f72656481526020017f206f6e746f2074686520626c6f636b636861696e20666f72206675727468657281526020017f2070726f63657373696e6700000000000000000000000000000000000000000081525060800191505060405180910390a15b50979650505050505050565b600080600080600085945087600019166001600088600019166000191681526020019081526020016000206000015460001916148015610a24575086600019166001600088600019166000191681526020019081526020016000206001015460001916145b15610af95760016000876000191660001916815260200190815260200160002060020160009054906101000a900461ffff16935060016000876000191660001916815260200190815260200160002060020160029054906101000a900461ffff16925060016000876000191660001916815260200190815260200160002060020160049054906101000a900461ffff16915060016000876000191660001916815260200190815260200160002060020160069054906101000a900461ffff169050848484848494509450945094509450610afa565b5b939792965093509350565b60006020528060005260406000206000915090508060000160009054906101000a900460ff169050815600a165627a7a72305820fcf59d0111879d93dfb14bc15c386ff7391c3ee220f45243d129ade8a78412a90029";
 
 myContract=web3.eth.contract(ABIarray).at(contractAddress);
 
@@ -86,17 +86,17 @@ Template.getdetails.events({
         if(document.getElementById("modeID").selectedIndex==1)
         {
         option1.text = "CO";
-        x.add(option1,x[0]);
+        x.add(option1,x[1]);
         option2.text = "CO2";
-        x.add(option2,x[1]);
+        x.add(option2,x[2]);
         }
         else
         if(document.getElementById("modeID").selectedIndex==2)
         {
         option1.text = "Turbidity";
-        x.add(option1,x[0]);
+        x.add(option1,x[1]);
         option2.text = "PH";
-        x.add(option2,x[1]);
+        x.add(option2,x[2]);
         }
         
     },
@@ -168,7 +168,11 @@ Template.getdetails.events({
     }
 });     
      
-}
+},
+    "reset form":function(event)
+    {
+        event.target.reset();
+    }
 });
 Template.map.helpers(
 {
@@ -184,57 +188,121 @@ Template.map.helpers(
     record()
     {
       return Records.find();  
-    },
+    }
+    
      
 });
+var countryname;
+
 Template.map.events({
-    "click #world-map":function(){
-        var countryname=document.getElementsByClassName("jvectormap-tip")[0].innerHTML;
-        try{
-            var tooltip;
+    "mouseover #world-map":function(){
+            var selectedcountry=document.getElementsByClassName("jvectormap-tip")[0].innerHTML;
+            console.log(selectedcountry);
+            myContract.showflag(selectedcountry,function(err,res){
+                //if()
+                console.log(res);
+                if(res){
+                   document.getElementsByClassName("jvectormap-tip")[0].style.background="green"; 
+                }else{
+                     document.getElementsByClassName("jvectormap-tip")[0].style.background="red";
+                }
+           
             
-//        myContract.retrievedata(deviceid,function(err,res){
-//        console.log(hex_to_ascii(res[0]));
-//        console.log(res[1].c[0]);
-//        console.log(res[2].c[0]);
-//        console.log(res[3].c[0]);
-//        document.getElementsByName("deviceID")[0].innerHTML="Recent record stored for Device ID = "+hex_to_ascii(res[0])+" are:";
-//        document.getElementsByName("turbidity")[0].innerHTML="Turbidity recorded: "+res[1].c[0];
-//        document.getElementsByName("oxigen")[0].innerHTML="Oxygen dissolved recorded: "+res[2].c[0];
-//        document.getElementsByName("nitrate")[0].innerHTML="Nitrate recorded: "+res[3].c[0];
-//        
-//       
-//        
-//        
-//        });
-            
-            var s=Records.find({Country:countryname});
-            s.forEach(function(data){
-                tooltip="<div id=tooltip>Air: <br/>T:"+data.record[1].Air[0].CO+"\t H:"+data.record[1].Air[1].CO2+"<br/>Water:<br/>Tu:"+data.record[0].Water[0].Turbidity+"\t Do:"+data.record[0].Water[1].PH+"</div>";
-            if(!(document.getElementsByClassName("jvectormap-tip")[0].innerHTML==""))
-        {
-            if(document.getElementById("tooltip")>0){
-                document.getElementById("tooltip").remove();
-            }
-            
-            document.getElementsByClassName("jvectormap-tip")[0].innerHTML+=tooltip;
-        }
             });
             
+    },
+    "click #world-map":function(){
+        document.getElementById("world-map").style.display="none";
+        document.getElementsByClassName("mapdataclass")[0].style.display="block"; 
+        var x=document.getElementsByClassName("jvectormap-tip")[0];
+        document.getElementById("map-data").innerHTML=""
+        countryname=x.innerHTML;
+        
+        var i=0;
+        var xy=document.getElementById("regionchoose");
+        xy.innerHTML="<option></option>";
+    
+    var location=Locations.find({countryName: countryname},{regionname:1,_id:0}).fetch();
+    location.forEach(function(){
+        var option=document.createElement("option");
+        option.text = location[i].regionname;
+        xy.add(option,xy[i]);
+        i++;
+       
+    });
+                
+    },
+    'change #regionchoose':function(event){
+        
+      try{
+            var coavg=0;
+            var co2avg=0;
+            var turbavg=0;
+            var phavg=0;
+            var phcount=0;
+            var turbcount=0;
+            var co2count=0;
+            var cocount=0;
+          
+            var tooltip;
+            var regionname=event.target.value;
+            var s=Sensors.find({countryName : countryname, regionname : regionname},{deviceName:1,_id:0}).fetch();
+            s.forEach(function(data)
+            {
+        
+            myContract.retrievedata(countryname, regionname, data.deviceName,function(err,res){
+            if(res[1].c[0]>0){
+                coavg+=res[1].c[0];
+                cocount++;
+            }
+            if(res[2].c[0]>0){
+                co2avg+=res[2].c[0];
+                co2count++;
+            }
+            if(res[3].c[0]>0){
+                turbavg+=res[3].c[0];
+                turbcount++;
+            }
+            if(res[4].c[0]>0){
+                phavg+=res[4].c[0];
+                phcount++;
+            }
             
+            
+            document.getElementById("map-data").innerHTML="";
+            
+            tooltip="<div id=tooltip>Average Pollution recorded <br/>Air: <br/>C0:"+coavg/cocount+"\t CO2:"+co2avg/co2count+"<br/>Water:<br/>PH:"+phavg/phcount+"\t Turbidity:"+turbavg/turbcount+"</div>";
+            document.getElementById("map-data").innerHTML+=tooltip;
         
+            });
+              
+            });
+            
+            var s=Records.find({Country:countryname,Region:regionname},{Region:1,_id:0});
+            if(s.count()>0)
+                {
+                document.getElementById("sorrymsg").style.display="none";
+                document.getElementById("regionchoose").style.display="block";
+                }
+            else
+                {
+                   document.getElementById("sorrymsg").style.display="block"; 
+                   document.getElementById("regionchoose").style.display="block";
+                }
+           
+                
         
-      
-      } catch (e) {
-    console.log(e);
-}
-        
-        
-        
-        
-        
-               
-    }
+        } 
+        catch (e) 
+        {
+        console.log(e);
+        }  
+    },
+    'click .dataClose':function(event){
+            event.preventDefault();
+            document.getElementsByClassName("mapdataclass")[0].style.display="none"; 
+            document.getElementById("world-map").style.display="block";
+        },
 });
 Template.body.events({
   "click .addSensors": function() {

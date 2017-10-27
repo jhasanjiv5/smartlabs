@@ -94,7 +94,21 @@
     <div id="earth_div"></div>
 -->
   <div id="world-map" style="width: 100%; height: 550px;">{{renderMap}}</div>
-  
+  <div class="w3-container mapdataclass"><span class="dataClose">[x]</span>
+    <div id ="selectopt">
+        <p id="sorrymsg">Sorry, No record found!</p>
+        
+    <label for="region">Select Region</label>
+        <br/>
+        <select name="region" id="regionchoose">
+           
+            
+        </select>
+        <br/>
+        </div>
+  <div id="map-data">
+  </div>
+  </div>
 </template>
 
 <template name="showdetails">
@@ -116,6 +130,7 @@
             {{/each}}
         </select>
             <br/>
+        
         <label for="mode">Select Mode</label>
         <br/>
         <select name="mode" id="modeID">
@@ -132,7 +147,9 @@
         
         <br/>
         <button type="submit">Show</button> 
-        <br/>  
+        
+        <button type="reset">Reset</button> 
+        <br/>
         <span name="avg_turbidity"></span><br/>
         <span name="avg_oxigen"></span><br/>
         <span name="avg_nitrate"></span>

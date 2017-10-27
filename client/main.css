@@ -175,3 +175,20 @@ li a:hover {
     border-bottom: .5px rgba(178, 174, 174, 0.56) solid;
     text-shadow: 4px 0px 20px rgba(0, 0, 0, 0.65);
 }
+.mapdataclass{
+    position: absolute;
+    margin-top: 10%;
+    height: 230px;
+    display: none;
+    width: 300px;
+    scroll-behavior: smooth;
+    overflow: scroll;
+    margin-left: 20%;
+    box-shadow: 0px 0px 1px 1px darkgrey;
+}
+.dataClose{
+    cursor: pointer;
+    position: fixed;
+    color: red;
+    padding-left: 260px;
+}
