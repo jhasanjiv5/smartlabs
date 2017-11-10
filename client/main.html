@@ -160,6 +160,7 @@
 
 <template name="dashboardTemp">
     
+<!--
     <form  class="ranges w3-card-4 card_margin">
         
         <h4>Add standard values</h4>
@@ -190,28 +191,30 @@
         <button type="submit">Add</button>
         
     </form>
+-->
+<!--
     <form class="show w3-card-4 card_margin" >
         
         <h4>Show recent updates!</h4>
         <div class="w3-container">
+            <input type="Text" name="country" placeholder="SensorID" required="required">
+            <br/>
+            <input type="Text" name="region" placeholder="SensorID" required="required">
+            <br/>
         <input type="Text" name="SensorID" placeholder="SensorID" required="required">
         <br/>
-            
-        <span name="deviceID"></span><br/>
-            <br/>
-        <span name="CO"></span><br/>
-        <span name="CO2"></span><br/>
-        <span name="PH"></span><br/>
-        <span name="Turbidity"></span>
+        <span name="data"></span><br/>
+       
         </div>
         
         <button type="submit">Show</button>
         
             
         </form>
+-->
     <div class="standards w3-card-4 card_margin" >
         
-        <h4>New Standards according to WHO are </h4>
+        <h4>New Standards are </h4>
        
         <div class="w3-container">   
         <span name="costd">{{standards}} </span><br/>
@@ -294,9 +297,10 @@
 </template>
 <template name="updateBlockChainTemp">
      
-    <form style="margin:10px">
-        <div class="w3-container">
+    <form class="update w3-card-4 card_margin" style="margin:10px">
         <h4>Input the data received from the sensors</h4>
+        <div class="w3-container">
+        
         
         <label for="country">Select Country</label>
         <br/>
@@ -314,6 +318,7 @@
         <select name="region" class="regionselect">
             <option></option>
         </select>
+            
             <br/>
         <label for="device">Device ID</label>
         <br/>
@@ -350,9 +355,48 @@
     <br/>
         <span name="result"></span>
         <br/>
-        <button type="submit">Set</button>
+        
+            
          </div> 
+        <button type="submit">Set data</button>
+        
          </form>
+    
+    <form class="show w3-card-4 card_margin"  style="margin:10px" >
+        
+        <h4>Show recent updates!</h4>
+        <div class="w3-container">
+            <label for="country">Select Country</label>
+        <br/>
+        <select name="country" class="countryselect2">
+            
+             <option></option>
+            {{#each country}}
+            <option>{{countryName}}</option>
+            {{/each}}
+            
+        </select>
+        <br/>
+            <label for="region">Select Region</label>
+        <br/>
+        <select name="region" class="regionselect2">
+            <option></option>
+        </select>
+            <br/>
+        <label for="device">Device ID</label>
+        <br/>
+        <select name="device" id="deviceID2" required="required">
+            <option></option>
+        </select>
+        <br/>
+        <span name="data"></span><br/>
+       
+        </div>
+        
+        <button type="submit">Show</button>
+        
+            
+        </form>
    
 </template>
 <template name="registerlink">

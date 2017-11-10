@@ -1,4 +1,0 @@
-miner.start()
-miner.stop();
-eth.accounts
-eth.getBalance(eth.coinbase)
