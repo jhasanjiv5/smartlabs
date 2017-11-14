@@ -25,11 +25,11 @@ Records= new Mongo.Collection('record');
 Standards =new Mongo.Collection('standard');
 Locations =new Mongo.Collection('location');
 
-ABIarray=[{"constant":true,"inputs":[],"name":"Turbhigh","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"Country","type":"bytes32"}],"name":"showflag","outputs":[{"name":"j","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"Colow","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"details","type":"bytes32[]"},{"name":"recdata","type":"uint256"}],"name":"saveCO2","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"index","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"deviceID","type":"bytes32"}],"name":"retrievedata","outputs":[{"name":"x","type":"bytes32"},{"name":"y","type":"uint256"},{"name":"z","type":"uint256"},{"name":"k","type":"uint256"},{"name":"j","type":"uint256"},{"name":"f","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"Co2low","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"Co2high","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"Turblow","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"PHlow","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"Cohigh","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"PHhigh","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"cdata","outputs":[{"name":"flag","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"data","outputs":[{"name":"Country","type":"bytes32"},{"name":"Location","type":"bytes32"},{"name":"deviceID","type":"bytes32"},{"name":"CO","type":"uint256"},{"name":"CO2","type":"uint256"},{"name":"Turbidity","type":"uint256"},{"name":"PH","type":"uint256"},{"name":"message","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":false,"name":"","type":"uint256"}],"name":"show","type":"event"}];
+ABIarray=[{"constant":true,"inputs":[],"name":"Turbhigh","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"Country","type":"bytes32"}],"name":"showflag","outputs":[{"name":"j","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"Colow","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"index","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"x11","type":"uint16"},{"name":"x21","type":"uint16"},{"name":"x31","type":"uint16"},{"name":"x41","type":"uint16"}],"name":"compare","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"Country","type":"bytes32"},{"name":"Location","type":"bytes32"},{"name":"deviceID","type":"bytes32"},{"name":"x11","type":"uint16"},{"name":"x21","type":"uint16"},{"name":"x31","type":"uint16"},{"name":"x41","type":"uint16"}],"name":"save","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"Co2low","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"Co2high","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"Country","type":"bytes32"},{"name":"Location","type":"bytes32"},{"name":"deviceID","type":"bytes32"}],"name":"retrievedata","outputs":[{"name":"x","type":"bytes32"},{"name":"y","type":"uint16"},{"name":"z","type":"uint16"},{"name":"k","type":"uint16"},{"name":"j","type":"uint16"},{"name":"f","type":"bytes32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"Turblow","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"PHlow","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"Cohigh","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"message","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"PHhigh","outputs":[{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"retrievestandards","outputs":[{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"cdata","outputs":[{"name":"flag","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"data","outputs":[{"name":"Country","type":"bytes32"},{"name":"Location","type":"bytes32"},{"name":"deviceID","type":"bytes32"},{"name":"CO","type":"uint16"},{"name":"CO2","type":"uint16"},{"name":"Turbidity","type":"uint16"},{"name":"PH","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"}];
 
-contractAddress="0x347ebde05207ac9f6756745b27af26b6a476a5ee";
+contractAddress="0x4c1fe53fe9547349d3cfab6f752d6e12df3c50db";
 
-bytedata="6060604052341561000f57600080fd5b6107e28061001e6000396000f3006060604052600436106100d0576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063016dd30c146100d55780631b93097a146101065780631ea88bff146101455780633059338414610176578063335932fc146101f15780636b29ea64146102285780637e29548714610296578063a3a7f02e146102c7578063b4eb4ec1146102f8578063bd2d068314610329578063c0679aa41461035a578063d8bbd3271461038b578063edc399b2146103bc578063f0ba8440146103fb575b600080fd5b34156100e057600080fd5b6100e8610483565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561011157600080fd5b61012b600480803560001916906020019091905050610488565b604051808215151515815260200191505060405180910390f35b341561015057600080fd5b6101586104bd565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561018157600080fd5b6101d76004808035906020019082018035906020019080806020026020016040519081016040528093929190818152602001838360200280828437820191505050505050919080359060200190919050506104c2565b604051808215151515815260200191505060405180910390f35b34156101fc57600080fd5b61021260048080359060200190919050506105c2565b6040518082815260200191505060405180910390f35b341561023357600080fd5b61024d6004808035600019169060200190919050506105e6565b6040518087600019166000191681526020018681526020018581526020018481526020018381526020018260001916600019168152602001965050505050505060405180910390f35b34156102a157600080fd5b6102a96106d3565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156102d257600080fd5b6102da6106d8565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561030357600080fd5b61030b6106de565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561033457600080fd5b61033c6106e3565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561036557600080fd5b61036d6106e8565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561039657600080fd5b61039e6106ed565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156103c757600080fd5b6103e16004808035600019169060200190919050506106f2565b604051808215151515815260200191505060405180910390f35b341561040657600080fd5b61041c600480803590602001909190505061071d565b6040518089600019166000191681526020018860001916600019168152602001876000191660001916815260200186815260200185815260200184815260200183815260200182600019166000191681526020019850505050505050505060405180910390f35b600581565b600060016000836000191660001916815260200190815260200160002060000160009054906101000a900460ff169050919050565b600981565b600060fa61ffff168210806104dc575061015e61ffff1682115b80156104e85750600082115b15610531577f434f322076696f6c6174696f6e20666f756e6400000000000000000000000000600260008080549050815260200190815260200160002060070181600019169055505b82600281518110151561054057fe5b9060200190602002015160026000808054905081526020019081526020016000206002018160001916905550816002600080805490508152602001908152602001600020600401819055506000805480600101828161059f9190610765565b916000526020600020900160008080549050909190915055506001905092915050565b6000818154811015156105d157fe5b90600052602060002090016000915090505481565b6000806000806000806000879650600090505b6000805490508110156106b757876000191660026000838152602001908152602001600020600201546000191614156106aa5760026000828152602001908152602001600020600301549550600260008281526020019081526020016000206004015494506002600082815260200190815260200160002060050154935060026000828152602001908152602001600020600601549250600260008281526020019081526020016000206007015491505b80806001019150506105f9565b8686868686869650965096509650965096505091939550919395565b60fa81565b61015e81565b600081565b600681565b602381565b600981565b60016020528060005260406000206000915090508060000160009054906101000a900460ff16905081565b60026020528060005260406000206000915090508060000154908060010154908060020154908060030154908060040154908060050154908060060154908060070154905088565b81548183558181151161078c5781836000526020600020918201910161078b9190610791565b5b505050565b6107b391905b808211156107af576000816000905550600101610797565b5090565b905600a165627a7a72305820a06fad5492f57acc790f2d82500dea3a802326435de7760a9766a87155e5a5360029";
+bytedata="6060604052341561000f57600080fd5b610ee18061001e6000396000f3006060604052600436106100f1576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063016dd30c146100f65780631b93097a146101275780631ea88bff14610166578063335932fc146101975780635a388f2c146101ce57806379b02baf146102345780637e295487146102c1578063a3a7f02e146102f2578063b2166dad14610323578063b4eb4ec114610404578063bd2d068314610435578063c0679aa414610466578063d1e8507b14610497578063d8bbd327146104d6578063db86c5ff14610507578063edc399b2146105a1578063f0ba8440146105e0575b600080fd5b341561010157600080fd5b610109610679565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561013257600080fd5b61014c60048080356000191690602001909190505061067e565b604051808215151515815260200191505060405180910390f35b341561017157600080fd5b6101796106b3565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156101a257600080fd5b6101b860048080359060200190919050506106b8565b6040518082815260200191505060405180910390f35b34156101d957600080fd5b61021a600480803561ffff1690602001909190803561ffff1690602001909190803561ffff1690602001909190803561ffff169060200190919050506106dc565b604051808215151515815260200191505060405180910390f35b341561023f57600080fd5b6102a7600480803560001916906020019091908035600019169060200190919080356000191690602001909190803561ffff1690602001909190803561ffff1690602001909190803561ffff1690602001909190803561ffff1690602001909190505061091f565b604051808215151515815260200191505060405180910390f35b34156102cc57600080fd5b6102d4610ae8565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156102fd57600080fd5b610305610aed565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561032e57600080fd5b6103626004808035600019169060200190919080356000191690602001909190803560001916906020019091905050610af3565b6040518087600019166000191681526020018661ffff1661ffff1681526020018561ffff1661ffff1681526020018461ffff1661ffff1681526020018361ffff1661ffff16815260200180602001828103825283818151815260200191508051906020019060200280838360005b838110156103eb5780820151818401526020810190506103d0565b5050505090500197505050505050505060405180910390f35b341561040f57600080fd5b610417610cbf565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561044057600080fd5b610448610cc4565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561047157600080fd5b610479610cc9565b604051808261ffff1661ffff16815260200191505060405180910390f35b34156104a257600080fd5b6104b86004808035906020019091905050610cce565b60405180826000191660001916815260200191505060405180910390f35b34156104e157600080fd5b6104e9610cf2565b604051808261ffff1661ffff16815260200191505060405180910390f35b341561051257600080fd5b61051a610cf7565b604051808961ffff1661ffff1681526020018861ffff1661ffff1681526020018761ffff1661ffff1681526020018661ffff1661ffff1681526020018561ffff1661ffff1681526020018461ffff1661ffff1681526020018361ffff1661ffff1681526020018261ffff1661ffff1681526020019850505050505050505060405180910390f35b34156105ac57600080fd5b6105c6600480803560001916906020019091905050610d2e565b604051808215151515815260200191505060405180910390f35b34156105eb57600080fd5b6106016004808035906020019091905050610d59565b604051808860001916600019168152602001876000191660001916815260200186600019166000191681526020018561ffff1661ffff1681526020018461ffff1661ffff1681526020018361ffff1661ffff1681526020018261ffff1661ffff16815260200197505050505050505060405180910390f35b600581565b600060026000836000191660001916815260200190815260200160002060000160009054906101000a900460ff169050919050565b600981565b6001818154811015156106c757fe5b90600052602060002090016000915090505481565b60008060019050600080816106f19190610dd3565b50600961ffff168661ffff1610806107115750602361ffff168661ffff16115b8015610721575060008661ffff16115b1561077a576000805480600101828161073a9190610dff565b916000526020600020900160007f434f00000000000000000000000000000000000000000000000000000000000090919091509060001916905550600090505b60fa61ffff168561ffff16108061079a575061015e61ffff168561ffff16115b80156107aa575060008561ffff16115b1561080357600080548060010182816107c39190610dff565b916000526020600020900160007f434f32000000000000000000000000000000000000000000000000000000000090919091509060001916905550600090505b600061ffff168461ffff1610806108225750600561ffff168461ffff16115b8015610832575060008461ffff16115b1561088b576000805480600101828161084b9190610dff565b916000526020600020900160007f547572626964697479000000000000000000000000000000000000000000000090919091509060001916905550600090505b600661ffff168361ffff1610806108aa5750600961ffff168361ffff16115b80156108ba575060008361ffff16115b1561091357600080548060010182816108d39190610dff565b916000526020600020900160007f504800000000000000000000000000000000000000000000000000000000000090919091509060001916905550600090505b80915050949350505050565b60008061092e868686866106dc565b90508660036000600180549050815260200190815260200160002060020181600019169055508860036000600180549050815260200190815260200160002060000181600019169055508760036000600180549050815260200190815260200160002060010181600019169055508560036000600180549050815260200190815260200160002060030160006101000a81548161ffff021916908361ffff1602179055508460036000600180549050815260200190815260200160002060030160026101000a81548161ffff021916908361ffff1602179055508360036000600180549050815260200190815260200160002060030160046101000a81548161ffff021916908361ffff1602179055508260036000600180549050815260200190815260200160002060030160066101000a81548161ffff021916908361ffff16021790555080600260008b6000191660001916815260200190815260200160002060000160006101000a81548160ff02191690831515021790555060018054806001018281610abe9190610e2b565b91600052602060002090016000600180549050909190915055506001915050979650505050505050565b60fa81565b61015e81565b6000806000806000610b03610e57565b6000879650600090505b600180549050811015610c3c578960001916600360008381526020019081526020016000206000015460001916148015610b6457508860001916600360008381526020019081526020016000206001015460001916145b8015610b8d57508760001916600360008381526020019081526020016000206002015460001916145b15610c2f576003600082815260200190815260200160002060030160009054906101000a900461ffff1695506003600082815260200190815260200160002060030160029054906101000a900461ffff1694506003600082815260200190815260200160002060030160049054906101000a900461ffff1693506003600082815260200190815260200160002060030160069054906101000a900461ffff1692505b8080600101915050610b0d565b610c48868686866106dc565b508686868686600080805480602002602001604051908101604052809291908181526020018280548015610c9f57602002820191906000526020600020905b81546000191681526020019060010190808311610c87575b505050505090509650965096509650965096505093975093979195509350565b600081565b600681565b602381565b600081815481101515610cdd57fe5b90600052602060002090016000915090505481565b600981565b6000806000806000806000806009602360fa61015e6000600560066009975097509750975097509750975097509091929394959697565b60026020528060005260406000206000915090508060000160009054906101000a900460ff16905081565b60036020528060005260406000206000915090508060000154908060010154908060020154908060030160009054906101000a900461ffff16908060030160029054906101000a900461ffff16908060030160049054906101000a900461ffff16908060030160069054906101000a900461ffff16905087565b815481835581811511610dfa57818360005260206000209182019101610df99190610e6b565b5b505050565b815481835581811511610e2657818360005260206000209182019101610e259190610e6b565b5b505050565b815481835581811511610e5257818360005260206000209182019101610e519190610e90565b5b505050565b602060405190810160405280600081525090565b610e8d91905b80821115610e89576000816000905550600101610e71565b5090565b90565b610eb291905b80821115610eae576000816000905550600101610e96565b5090565b905600a165627a7a723058207222b50693796a6c539f605db7d56e772be14934f17080ae7965b3fa0e15c24d0029";
 
 myContract=web3.eth.contract(ABIarray).at(contractAddress);
 
@@ -567,20 +567,9 @@ Template.updateBlockChainTemp.events({
     },
     'change #deviceID': function(evt) {
         deviceid=evt.target.value;
-        mode=Sensors.find({"deviceName" : deviceid},{modeName:1,_id:0}).fetch()[0].modeName;
-      
-        if(mode=="Air")
-            {
+        
                
-                document.getElementById("air").style.display="Block";
-                document.getElementById("water").style.display="none";
-                
-            }
-        else if(mode=="Water")
-            {
-                document.getElementById("water").style.display="Block";
-                document.getElementById("air").style.display="none";
-            }
+          
         
     },
     
@@ -590,8 +579,26 @@ Template.updateBlockChainTemp.events({
       try{
           var data41;
             var data51;
-            var data11=0;
-            var data21=0;
+          var data11;
+              var data21;
+            if(event.target.data11.value=="")
+                {
+                    data11=0;
+                }
+            else
+                {
+                  
+           data11=event.target.data11.value;
+                }
+            if(event.target.data21.value=="")
+                {
+                    data21=0;
+                }
+            else
+                {
+                  
+           data21=event.target.data21.value;
+                }
             if(event.target.data41.value=="")
                 {
                     data41=0;
@@ -618,7 +625,10 @@ Template.updateBlockChainTemp.events({
           Region: regionname,
           deviceID: deviceid,
           record:[
-              {Water:"NA"
+              {Water:[
+              {PH: data11}, 
+              {Turbidity: data21}
+              ]
               },
               {Air:[
               {CO: data41}, 
@@ -627,172 +637,15 @@ Template.updateBlockChainTemp.events({
           ] ,
           createdAt: new Date()
       });
-         var details=[countryname,regionname,deviceid];
+        
             
-         console.log(details);
-         
-         myContract.saveCO2(details,data41,{from:web3.eth.coinbase},function(err,res){
-         document.getElementsByName("result")[0].innerHTML="your transaction hex is: "+res;
+        
+         myContract.save.sendTransaction(countryname,regionname,deviceid,data41,data51,data21,data11,{from:web3.eth.coinbase, gas:300000},function(err,res){
+         document.getElementsByName("result")[0].innerHTML="your transaction is: "+res;
         });
          
             
-      //alert("Added new Records from "+deviceid);
-//          document.getElementsByName("result")[0].innerHTML+=web3.eth.getTransactionReceipt(tx);
-          
-          
- //        myContract.retrievedata(countryname, regionname, deviceid,     
-//         function(err,res){
-//                 
-//                document.getElementsByName("result")[0].innerHTML+=" <br/> The data saved on Blockchain is: <br/>CO: "+res[1].c[0]+"<br/>CO2: "+res[2].c[0];
-//             var msg;
-//                
-////                if(res[5].length>0)
-////                    {
-////                        res[5].forEach(function(data)
-////                        {
-////                        document.getElementsByName("result")[0].innerHTML+="Standard violation detected for "+hex_to_ascii(data)+"<br />";
-////                        });
-////                    }
-//             
-//         });    
-            
-//    if(mode=="Air")
-//        {
-//            var data41;
-//            var data51;
-//            var data11=0;
-//            var data21=0;
-//            if(event.target.data41.value=="")
-//                {
-//                    data41=0;
-//                }
-//            else
-//                {
-//                  
-//           data41=event.target.data41.value;
-//                }
-//            if(event.target.data51.value=="")
-//                {
-//                    data51=0;
-//                }
-//            else
-//                {
-//                  
-//           data51=event.target.data51.value;
-//                }
-//           
-//        
-//            
-//      Records.insert({
-//          Country: countryname,
-//          Region: regionname,
-//          deviceID: deviceid,
-//          record:[
-//              {Water:"NA"
-//              },
-//              {Air:[
-//              {CO: data41}, 
-//              {CO2: data51}]
-//              }, 
-//          ] ,
-//          createdAt: new Date()
-//      });
-//         console.log(countryname, regionname, deviceid,data41,data51);
-//         
-//         myContract.save.sendTransaction(countryname,regionname,deviceid,data41,data51,data21,data11,{from: web3.eth.coinbase},function(err,res){
-//         document.getElementsByName("result")[0].innerHTML="your transaction hex is: "+res;
-//         console.log(err);
-//             
-//        });
-//            
-//      alert("Added new Records from "+deviceid);
-//       
-//    
-//        myContract.retrievedata(countryname, regionname, deviceid,
-//         function(err,res){
-//                 
-//                document.getElementsByName("result")[0].innerHTML+=" <br/> The data saved on Blockchain is: <br/>CO: "+res[1].c[0]+"<br/>CO2: "+res[2].c[0];
-//             var msg;
-//                
-//                if(res[5].length>0)
-//                    {
-//                        res[5].forEach(function(data)
-//                        {
-//                        document.getElementsByName("result")[0].innerHTML+="Standard violation detected for "+hex_to_ascii(data)+"<br />";
-//                        });
-//                    }
-//             
-//         });    
-//            
-//        }
-//      else if(mode=="water")
-//          {
-//              var data11;
-//            var data21;
-//               var data41=0;
-//            var data51=0;
-//            if(event.target.data11.value=="")
-//                {
-//                    data11=0;
-//                }
-//            else
-//                {
-//                  
-//           data41=event.target.data11.value;
-//                }
-//            if(event.target.data21.value=="")
-//                {
-//                    data21=0;
-//                }
-//            else
-//                {
-//                  
-//           data51=event.target.data21.value;
-//                }
-//           
-//              
-//      Records.insert({
-//          Country: countryname,
-//          Region:regionname,
-//          deviceID: deviceid,
-//          record:[
-//              {Water:[
-//              {PH: data11}, 
-//              {Turbidity: data21}
-//              ]
-//              },
-//              {Air:"NA"
-//              }, 
-//          ] ,
-//          createdAt: new Date()
-//      });
-//         
-//         myContract.save.sendTransaction(countryname, regionname, deviceid,data41,data51,data21,data11,{from: web3.eth.coinbase},function(err,res){
-//         //document.getElementsByName("result")[0].innerHTML="your transaction number is: "+res;
-//         console.log(res);     
-//        
-//    });
-//          myContract.retrievedata(countryname, regionname, deviceid,
-//         function(err,res){
-//             
-//                document.getElementsByName("result")[0].innerHTML+=" <br/> The data saved on Blockchain is: <br/>PH: "+res[3].c[0]+"<br/>Turbidity: "+res[4].c[0]+"<br/>";
-//             var msg;
-//                
-//                if(res[5].length>0)
-//                    {
-//                        res[5].forEach(function(data)
-//                        {
-//                        document.getElementsByName("result")[0].innerHTML+="Standard violation detected for "+hex_to_ascii(data)+"<br />";
-//                        });
-//                    }
-//             
-//         });      
-//        
-//      
-//      alert("Added new Records from "+deviceid);
-//        
-//    
-//          }
+
      
      }catch (e) {
     console.log(e);
@@ -850,11 +703,11 @@ Template.updateBlockChainTemp.events({
     event.preventDefault();
     
      
-    myContract.retrievedata(deviceid,function(err,res){
-        
-         document.getElementsByName("data")[0].innerHTML="recorded: <br/> CO: "+res[1].c[0]+"<br/>CO2: "+res[2].c[0]+"<br/>PH: "+res[4].c[0]+"<br/>Turbidity: "+res[3].c[0]+"<br/>Comment: "+hex_to_ascii(res[5]);
-        
-       
+    myContract.retrievedata(countryname,regionname,deviceid,function(err,res){
+                 document.getElementsByName("data")[0].innerHTML="recorded: <br/> CO: "+res[1].c[0]+"<br/>CO2: "+res[2].c[0]+"<br/>PH: "+res[4].c[0]+"<br/>Turbidity: "+res[3].c[0]+"<br/>Comments: ";
+                 res[5].forEach(function(data){
+                     document.getElementsByName("data")[0].innerHTML+="<p style='color:red'>violation found in "+hex_to_ascii(data)+" value</p>";
+                 });
         
         
     });

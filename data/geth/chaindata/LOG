@@ -286,3 +286,34 @@
 17:11:54.474800 table@remove removed @64
 18:06:36.467144 db@close closing
 18:06:36.467533 db@close done T·385.259µs
+=============== Nov 10, 2017 (CET) ===============
+17:27:08.192183 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+17:27:08.193927 version@stat F·[0 3] S·4MiB[0B 4MiB] Sc·[0.00 0.05]
+17:27:08.193965 db@open opening
+17:27:08.194057 journal@recovery F·1
+17:27:08.194838 journal@recovery recovering @66
+17:27:08.208640 memdb@flush created L0@71 N·3719 S·227KiB "\x00\xbb'..\xba\x8f\x16,v123699":"\xff\xe8W..\x93yo,v124834"
+17:27:08.209454 version@stat F·[1 3] S·4MiB[227KiB 4MiB] Sc·[0.25 0.05]
+17:27:08.211390 db@janitor F·6 G·0
+17:27:08.211427 db@open done T·17.4426ms
+=============== Nov 14, 2017 (CET) ===============
+11:48:20.120876 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:48:20.121749 version@stat F·[1 3] S·4MiB[227KiB 4MiB] Sc·[0.25 0.05]
+11:48:20.121822 db@open opening
+11:48:20.122009 journal@recovery F·1
+11:48:20.123649 journal@recovery recovering @72
+11:48:20.124951 memdb@flush created L0@74 N·2 S·245B "Blo..ion,v126115":"Las..der,v126116"
+11:48:20.125920 version@stat F·[2 3] S·4MiB[228KiB 4MiB] Sc·[0.50 0.05]
+11:48:20.126960 db@janitor F·7 G·0
+11:48:20.126995 db@open done T·5.139522ms
+12:00:55.024172 table@compaction L0·2 -> L1·3 S·4MiB Q·126252
+12:00:55.088927 table@build created L1@77 N·27807 S·2MiB "\x00\x00f..\xf7\x17\xbd,v65277":"h\x00\x00..\xe5\tD,v34643"
+12:00:55.171090 table@build created L1@78 N·27792 S·2MiB "h\x00\x00..\tDt,v34640":"\xaeD\xce..\x90\xea\xa4,v59835"
+12:00:55.200004 table@build created L1@79 N·5953 S·771KiB "\xaeR\a..\xed[\x1d,v84059":"\xff\xff\xea..\x03\v\xd5,v64372"
+12:00:55.200092 version@stat F·[0 3] S·4MiB[0B 4MiB] Sc·[0.00 0.05]
+12:00:55.200863 table@compaction committed F-2 S-15KiB Ke·0 D·1849 T·175.822288ms
+12:00:55.201149 table@remove removed @74
+12:00:55.201419 table@remove removed @71
+12:00:55.204382 table@remove removed @68
+12:00:55.205307 table@remove removed @69
+12:00:55.206071 table@remove removed @70
