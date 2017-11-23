@@ -4,3 +4,69 @@
 08:26:25.318868 version@stat F·[] S·0B[] Sc·[]
 08:26:25.319567 db@janitor F·2 G·0
 08:26:25.319812 db@open done T·1.503271ms
+=============== Nov 20, 2017 (CET) ===============
+13:54:55.985578 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:54:55.986476 version@stat F·[] S·0B[] Sc·[]
+13:54:55.986519 db@open opening
+13:54:55.986611 journal@recovery F·1
+13:54:55.987915 journal@recovery recovering @1
+13:54:55.988934 memdb@flush created L0@2 N·11 S·723B "\x05\u007f\x8d..\xa7\x84\xf6,v2":"sec..\b\u007fi,v1"
+13:54:55.989787 version@stat F·[1] S·723B[723B] Sc·[0.25]
+13:54:55.991480 db@janitor F·3 G·0
+13:54:55.991517 db@open done T·4.978249ms
+13:54:56.204692 db@close closing
+13:54:56.208542 db@close done T·3.859557ms
+=============== Nov 20, 2017 (CET) ===============
+13:55:01.377911 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:55:01.378174 version@stat F·[1] S·723B[723B] Sc·[0.25]
+13:55:01.378204 db@open opening
+13:55:01.378272 journal@recovery F·1
+13:55:01.379180 journal@recovery recovering @3
+13:55:01.380803 memdb@flush created L0@5 N·2 S·260B "Las..der,v13":"ser..129,v14"
+13:55:01.381903 version@stat F·[2] S·983B[983B] Sc·[0.50]
+13:55:01.383483 db@janitor F·4 G·0
+13:55:01.383532 db@open done T·5.304889ms
+13:55:01.597992 db@close closing
+13:55:01.598486 db@close done T·496.184µs
+=============== Nov 20, 2017 (CET) ===============
+13:55:28.613242 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+13:55:28.613493 version@stat F·[2] S·983B[983B] Sc·[0.50]
+13:55:28.613520 db@open opening
+13:55:28.613593 journal@recovery F·1
+13:55:28.614322 journal@recovery recovering @6
+13:55:28.615875 memdb@flush created L0@8 N·2 S·260B "Las..der,v16":"ser..129,v17"
+13:55:28.616903 version@stat F·[3] S·1KiB[1KiB] Sc·[0.75]
+13:55:28.617910 db@janitor F·5 G·0
+13:55:28.617943 db@open done T·4.403796ms
+13:55:28.829833 db@close closing
+13:55:28.830423 db@close done T·601.357µs
+=============== Nov 22, 2017 (CET) ===============
+23:31:03.835282 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:31:03.837310 version@stat F·[3] S·1KiB[1KiB] Sc·[0.75]
+23:31:03.837358 db@open opening
+23:31:03.837448 journal@recovery F·1
+23:31:03.839916 journal@recovery recovering @9
+23:31:03.841737 memdb@flush created L0@11 N·2 S·260B "Las..der,v19":"ser..129,v20"
+23:31:03.843145 version@stat F·[4] S·1KiB[1KiB] Sc·[1.00]
+23:31:03.844454 db@janitor F·6 G·0
+23:31:03.844496 db@open done T·7.118179ms
+23:31:03.844898 table@compaction L0·4 -> L1·0 S·1KiB Q·21
+23:31:03.846412 table@build created L1@14 N·12 S·766B "\x05\u007f\x8d..\xa7\x84\xf6,v2":"ser..129,v20"
+23:31:03.846477 version@stat F·[0 1] S·766B[0B 766B] Sc·[0.00 0.00]
+23:31:03.846925 table@compaction committed F-3 S-737B Ke·0 D·5 T·1.966625ms
+23:31:03.847197 table@remove removed @11
+23:31:03.847438 table@remove removed @8
+23:31:03.847790 table@remove removed @5
+23:31:03.847945 table@remove removed @2
+23:40:13.733997 db@close closing
+23:40:13.735397 db@close done T·1.398389ms
+=============== Nov 22, 2017 (CET) ===============
+23:42:25.250356 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+23:42:25.251066 version@stat F·[0 1] S·766B[0B 766B] Sc·[0.00 0.00]
+23:42:25.251105 db@open opening
+23:42:25.251189 journal@recovery F·1
+23:42:25.251975 journal@recovery recovering @12
+23:42:25.252803 memdb@flush created L0@15 N·2 S·260B "Las..der,v22":"ser..129,v23"
+23:42:25.253734 version@stat F·[1 1] S·1KiB[260B 766B] Sc·[0.25 0.00]
+23:42:25.254743 db@janitor F·4 G·0
+23:42:25.254772 db@open done T·3.647558ms
