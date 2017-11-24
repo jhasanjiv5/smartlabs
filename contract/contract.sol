@@ -1,21 +1,22 @@
 pragma solidity ^0.4.10;
 
 contract setStandards{
-    uint16 constant public Colow=9;
-    uint16 constant public Cohigh=35;
-    uint16 constant public Co2low=250;
-    uint16 constant public Co2high=350;
-    uint16 constant public Turblow=0;
-    uint16 constant public Turbhigh=5;
-    uint16 constant public PHlow=6;
-    uint16 constant public PHhigh=9;
+    
+    uint16 Colow;
+    uint16 Cohigh;
+    uint16 Co2low;
+    uint16 Co2high;
+    uint16 Turblow;
+    uint16 Turbhigh;
+    uint16 PHlow;
+    uint16 PHhigh;
+   
     
     bytes32[] public message;
     
     uint[] public index;
     
   
-    
     struct receiveddata{
     bytes32 Country;
     bytes32 Location;
@@ -24,13 +25,36 @@ contract setStandards{
     uint16 CO2;
     uint16 Turbidity;
     uint16 PH;
-    
-    
     }
     
     struct countryflag{
     bool flag;
     }
+    
+   function setStandards() public{
+        Colow=9;
+        Cohigh=35;
+        Co2low=250;
+        Co2high=350;
+        Turblow=0;
+        Turbhigh=5;
+        PHlow=6;
+        PHhigh=9;
+   
+   }
+   function updateStandards(uint16 data11,uint16 data12,uint16 data21,uint16 data22,uint16 data31,uint16 data32,uint16 data41,uint16 data42) public returns(bool success)
+   {
+       Colow=data11;
+        Cohigh=data12;
+        Co2low=data21;
+        Co2high=data22;
+        PHlow=data31;
+        PHhigh=data32;
+        Turblow=data41;
+        Turbhigh=data42;
+        return true;
+        
+   }
     mapping(bytes32=>countryflag) public cdata;
     mapping(uint=>receiveddata) public data;
     

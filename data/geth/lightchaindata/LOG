@@ -70,3 +70,13 @@
 23:42:25.253734 version@stat F·[1 1] S·1KiB[260B 766B] Sc·[0.25 0.00]
 23:42:25.254743 db@janitor F·4 G·0
 23:42:25.254772 db@open done T·3.647558ms
+=============== Nov 24, 2017 (CET) ===============
+14:31:29.558996 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+14:31:29.560151 version@stat F·[1 1] S·1KiB[260B 766B] Sc·[0.25 0.00]
+14:31:29.560337 db@open opening
+14:31:29.560888 journal@recovery F·1
+14:31:29.563613 journal@recovery recovering @16
+14:31:29.564913 memdb@flush created L0@18 N·1 S·216B "Las..der,v25":"Las..der,v25"
+14:31:29.565877 version@stat F·[2 1] S·1KiB[476B 766B] Sc·[0.50 0.00]
+14:31:29.567800 db@janitor F·5 G·0
+14:31:29.567840 db@open done T·7.348841ms

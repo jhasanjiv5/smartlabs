@@ -1001,3 +1001,36 @@
 12:28:09.278166 table@remove removed @229
 13:55:24.395918 db@close closing
 13:55:24.396981 db@close done T·1.059617ms
+=============== Nov 24, 2017 (CET) ===============
+14:47:39.734585 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+14:47:39.736096 version@stat F·[0 4] S·6MiB[0B 6MiB] Sc·[0.00 0.06]
+14:47:39.736153 db@open opening
+14:47:39.736473 journal@recovery F·1
+14:47:39.739214 journal@recovery recovering @251
+14:47:39.768516 memdb@flush created L0@257 N·5733 S·517KiB "\x00=\xe4..\xf8\xa3\xf5,v149576":"\xff\xeb+..\xf6\xdcX,v151285"
+14:47:39.788136 version@stat F·[1 4] S·6MiB[517KiB 6MiB] Sc·[0.25 0.06]
+14:47:39.797808 db@janitor F·7 G·0
+14:47:39.798109 db@open done T·61.66835ms
+=============== Nov 24, 2017 (CET) ===============
+14:48:15.685793 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+14:48:15.686090 version@stat F·[1 4] S·6MiB[517KiB 6MiB] Sc·[0.25 0.06]
+14:48:15.686117 db@open opening
+14:48:15.686199 journal@recovery F·1
+14:48:15.687005 journal@recovery recovering @258
+14:48:15.688367 memdb@flush created L0@260 N·2 S·245B "Blo..ion,v152985":"Las..der,v152986"
+14:48:15.689846 version@stat F·[2 4] S·6MiB[518KiB 6MiB] Sc·[0.50 0.06]
+14:48:15.691123 db@janitor F·8 G·0
+14:48:15.691268 db@open done T·5.123456ms
+15:01:35.405094 table@compaction L0·2 -> L1·4 S·6MiB Q·152989
+15:01:35.444678 table@build created L1@263 N·22984 S·2MiB "\x00\x00f..\xf7\x17\xbd,v65277":"b\x00\x00..\xa8\x89h,v69997"
+15:01:35.496009 table@build created L1@264 N·29734 S·2MiB "b\x00\x00..\xe1\xec\xda,v70015":"k\x84'..ϖ=,v141932"
+15:01:35.532979 table@build created L1@265 N·20361 S·2MiB "k\x8eW..\xf2!\xf1,v133986":"ӂI..\xb2\xa8\x83,v134238"
+15:01:35.543592 table@build created L1@266 N·4856 S·691KiB "ӂ\x8e..\x94;\x8d,v89592":"\xff\xff\xea..\x03\v\xd5,v64372"
+15:01:35.543655 version@stat F·[0 4] S·6MiB[0B 6MiB] Sc·[0.00 0.07]
+15:01:35.544686 table@compaction committed F-2 S-16KiB Ke·0 D·2136 T·138.317073ms
+15:01:35.544908 table@remove removed @260
+15:01:35.545249 table@remove removed @257
+15:01:35.545916 table@remove removed @253
+15:01:35.546620 table@remove removed @254
+15:01:35.547439 table@remove removed @255
+15:01:35.547836 table@remove removed @256
