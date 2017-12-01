@@ -2,6 +2,8 @@ import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Mongo } from 'meteor/mongo';
 import { jQuery } from 'jquery';
+
+
 import './main.html';
 
 require('jquery-mousewheel')($);
@@ -16,6 +18,7 @@ hex_to_ascii=function(str1)
 	return str;
  }
 
+
  function initialize() {
         var earth = new WE.map('earth_div');
         WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(earth);
@@ -24,6 +27,7 @@ Sensors= new Mongo.Collection('sensor');
 Records= new Mongo.Collection('record');
 Standards =new Mongo.Collection('standard');
 Locations =new Mongo.Collection('location');
+ttndata= new Mongo.Collection('ttn');
 
 ABIarray=[{"constant":true,"inputs":[{"name":"Country","type":"bytes32"}],"name":"showflag","outputs":[{"name":"j","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"index","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"data11","type":"uint16"},{"name":"data12","type":"uint16"},{"name":"data21","type":"uint16"},{"name":"data22","type":"uint16"},{"name":"data31","type":"uint16"},{"name":"data32","type":"uint16"},{"name":"data41","type":"uint16"},{"name":"data42","type":"uint16"}],"name":"updateStandards","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"x11","type":"uint16"},{"name":"x21","type":"uint16"},{"name":"x31","type":"uint16"},{"name":"x41","type":"uint16"}],"name":"compare","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"Country","type":"bytes32"},{"name":"Location","type":"bytes32"},{"name":"deviceID","type":"bytes32"},{"name":"x11","type":"uint16"},{"name":"x21","type":"uint16"},{"name":"x31","type":"uint16"},{"name":"x41","type":"uint16"}],"name":"save","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"Country","type":"bytes32"},{"name":"Location","type":"bytes32"},{"name":"deviceID","type":"bytes32"}],"name":"retrievedata","outputs":[{"name":"x","type":"bytes32"},{"name":"y","type":"uint16"},{"name":"z","type":"uint16"},{"name":"k","type":"uint16"},{"name":"j","type":"uint16"},{"name":"f","type":"bytes32[]"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"message","outputs":[{"name":"","type":"bytes32"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"retrievestandards","outputs":[{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"},{"name":"","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"bytes32"}],"name":"cdata","outputs":[{"name":"flag","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"data","outputs":[{"name":"Country","type":"bytes32"},{"name":"Location","type":"bytes32"},{"name":"deviceID","type":"bytes32"},{"name":"CO","type":"uint16"},{"name":"CO2","type":"uint16"},{"name":"Turbidity","type":"uint16"},{"name":"PH","type":"uint16"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"}];
 
@@ -34,16 +38,16 @@ bytedata="6060604052341561000f57600080fd5b60096000806101000a81548161ffff02191690
 myContract=web3.eth.contract(ABIarray).at(contractAddress);
 
 Meteor.startup(function () {
-  Session.setDefault("templateName", "dashboardTemp");
-  
-   
+  Session.setDefault("templateName", "dashboardTemp"); 
+    
 });
 
 Template.body.helpers({
-     
+
   template_name: function(){
     return Session.get("templateName");
-  
+      
+    
   }
 });
 Template.showdetails.events({
@@ -209,6 +213,7 @@ Template.map.events({
            
             
             });
+        
             
     },
     "click #world-map":function(){
@@ -324,6 +329,7 @@ Template.body.events({
      document.getElementsByClassName("updateBlockchain")[0].style.background="#4CAF50";
      document.getElementsByClassName("dashboard")[0].style.background="";
      document.getElementsByClassName("addSensors")[0].style.background="";
+      
     
   }
   // ..
@@ -357,7 +363,20 @@ Template.dashboardTemp.events({
         alert("new standards are set and the transaction number is"+res);
           
     });
-  }
+  },
+    'submit .getTTNclass':function(event){
+        event.preventDefault();
+        //
+        Meteor.call('requestMethod', function(error, result){
+            if(error){
+                alert('Error');
+            }else{
+                console.log(result);
+                document.getElementsByName('getTTNdata')[0].innerHTML=result;
+            }
+        });
+    }
+    
 //  ,
 //    'submit .show':function(event) {
 //    event.preventDefault();
@@ -390,6 +409,17 @@ Template.dashboardTemp.helpers({
         });
     
     },
+    ttn(){
+       Meteor.call('requestMethod', function(error, result){
+            if(error){
+                alert('Error');
+            }else{
+                console.log(result);
+                document.getElementsByName('getTTNdata')[0].innerHTML=result[0];
+            }
+        }); 
+    }
+    
 });
 Template.addSensorsTemp.helpers({
     
@@ -523,6 +553,7 @@ Template.updateBlockChainTemp.helpers({
 var lookup={};
 var regionname;
 var mode;
+
 Template.updateBlockChainTemp.events({
     'change .countryselect': function(evt) {
         var i=0;
@@ -567,10 +598,7 @@ Template.updateBlockChainTemp.events({
     },
     'change #deviceID': function(evt) {
         deviceid=evt.target.value;
-        
-               
-          
-        
+       
     },
     
     
@@ -731,8 +759,10 @@ Template.updateBlockChainTemp.events({
         
     });
         
-     }  
+     }
+    
 });
+
 Template.register.events({
         'submit form': function(event) {
             event.preventDefault();
