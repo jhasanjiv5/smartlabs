@@ -21,8 +21,8 @@ Meteor.methods({
 var info;
 
 var request = require('request');
-  var url='https://pollutanttracker.data.thethingsnetwork.org/api/v2/devices';
-//var url ='https://pollutanttracker.data.thethingsnetwork.org/api/v2/query/pollutionchecker001';
+  //var url='https://pollutanttracker.data.thethingsnetwork.org/api/v2/devices';
+var url ='https://pollutanttracker.data.thethingsnetwork.org/api/v2/query/pollutionchecker001';
 var key='key ttn-account-v2.d8l4oxhnFnTIxJ8htdhU85VKPAjlGMI2YWVNF9591os';
 
 var options = {
@@ -43,7 +43,7 @@ function callback(error, response, body) {
     
   }
 }
-
+    
     request(options,callback);
     console.log(data)
     return data;

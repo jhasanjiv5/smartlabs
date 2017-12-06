@@ -363,19 +363,23 @@ Template.dashboardTemp.events({
         alert("new standards are set and the transaction number is"+res);
           
     });
-  },
-    'submit .getTTNclass':function(event){
-        event.preventDefault();
-        //
-        Meteor.call('requestMethod', function(error, result){
-            if(error){
-                alert('Error');
-            }else{
-                console.log(result);
-                document.getElementsByName('getTTNdata')[0].innerHTML=result;
-            }
-        });
-    }
+  }
+//    ,
+//    'submit .getTTNclass':function(event){
+//        event.preventDefault();
+//        //
+//        Meteor.call('requestMethod', function(error, result){
+//            if(error){
+//                alert('Error');
+//            }else{
+//                
+//                console.log(result);
+//                document.getElementsByName('getTTNdata')[0].innerHTML=result[0].Carbondi.toString();
+//                
+//                
+//            }
+//        });
+//    }
     
 //  ,
 //    'submit .show':function(event) {
@@ -414,8 +418,8 @@ Template.dashboardTemp.helpers({
             if(error){
                 alert('Error');
             }else{
-                console.log(result);
-                document.getElementsByName('getTTNdata')[0].innerHTML=result[0];
+                console.log(result[0]);  
+                document.getElementsByName('getTTNdata')[0].innerHTML="Data Transmitted by LoRa received at TTN: <br /> CO2: "+result[0]['Carbondi']+"<br /> CO: "+result[0]['Carbonmono']+"<br /> PH: "+result[0]['PHvalue']+"<br /> Turbidity: "+result[0]['Turbi'];  
             }
         }); 
     }
