@@ -3,7 +3,6 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { Mongo } from 'meteor/mongo';
 import { jQuery } from 'jquery';
 
-
 import './main.html';
 
 require('jquery-mousewheel')($);
@@ -418,13 +417,50 @@ Template.dashboardTemp.helpers({
             if(error){
                 alert('Error');
             }else{
-                console.log(result[0]);  
-                document.getElementsByName('getTTNdata')[0].innerHTML="Data Transmitted by LoRa received at TTN: <br /> CO2: "+result[0]['Carbondi']+"<br /> CO: "+result[0]['Carbonmono']+"<br /> PH: "+result[0]['PHvalue']+"<br /> Turbidity: "+result[0]['Turbi'];  
+                var item=result.length;
+                
+                document.getElementsByName('getTTNdata')[0].innerHTML="Data Transmitted by LoRa received at TTN: <br /> CO2: "+result[item-1]['Carbondi']+"<br /> CO: "+result[item-1]['Carbonmono']+"<br /> PH: "+result[item-1]['PHvalue']+"<br /> Turbidity: "+result[item-1]['Turbi']+"<br /> Time: "+result[item-1]['time']; 
+                
+                var ttntime=Records.find({TTNTime: result[item-1]['time']},{TTNTime:1,_id:0}).fetch().toString();
+                
+                console.log(ttntime);
+                
+                if(ttntime)
+                    {
+                        console.log(ttntime.toString());
+                    }
+                    else
+                    {
+                        
+         Records.insert({
+          Country: "Switzerland",
+          Region: "Zurich",
+          deviceID: "PIMS",
+          record:[
+              {Water:[
+              {PH: result[item-1]['PHvalue']}, 
+              {Turbidity: result[item-1]['Turbi']}
+              ]
+              },
+              {Air:[
+              {CO: result[item-1]['Carbonmono']}, 
+              {CO2: result[item-1]['Carbondi']}]
+              }, 
+          ] ,
+          TTNTime:result[item-1]['time'],
+          createdAt: new Date()
+            });
+                        
             }
+            }
+           
         }); 
+ 
+        
     }
     
 });
+
 Template.addSensorsTemp.helpers({
     
     sensor()

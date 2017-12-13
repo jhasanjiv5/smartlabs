@@ -18,7 +18,7 @@
 MQ135 gasSensor = MQ135(0);
 int pHArray[ArrayLenth];   //Store the average value of the sensor feedback
 int pHArrayIndex = 0;
-//#define RZERO 76.63
+
   float CO;
   float CO2;
   float turbidity;
@@ -121,8 +121,8 @@ void loop() {
 
   delay(printInterval);
   float rzero = gasSensor.getRZero();
-  //CO2 = (gasSensor.getPPM()*(1024/5)-rzero)/10;
-  CO2 = gasSensor.getPPM();
+  CO2 = (gasSensor.getPPM()*(1024/5)-rzero);
+  //CO2 = gasSensor.getPPM();
   //val=analogRead(0);//Read Gas value from analog 0
 
   CO = analogRead(1)/10;
