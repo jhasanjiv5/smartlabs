@@ -1,10 +1,11 @@
-
 // MIT License
 // https://github.com/gonzalocasas/arduino-uno-dragino-lorawan/blob/master/LICENSE
 // Based on examples from https://github.com/matthijskooijman/arduino-lmic
 // Copyright (c) 2015 Thomas Telkamp and Matthijs Kooijman
 
 // Adaptions: Andreas Spiess
+
+// Adaptions: Sanjiv Jha
 
 #include <lmic.h>
 #include <hal/hal.h>
@@ -18,7 +19,7 @@
 MQ135 gasSensor = MQ135(0);
 int pHArray[ArrayLenth];   //Store the average value of the sensor feedback
 int pHArrayIndex = 0;
-
+#define RZERO 76.36
   float CO;
   float CO2;
   float turbidity;
@@ -121,7 +122,9 @@ void loop() {
 
   delay(printInterval);
   float rzero = gasSensor.getRZero();
-  CO2 = (gasSensor.getPPM()*(1024/5)-rzero);
+  
+  int CO2ppm = gasSensor.getPPM();
+  CO2=CO2ppm*(1023/5.0)-RZERO;
   //CO2 = gasSensor.getPPM();
   //val=analogRead(0);//Read Gas value from analog 0
 
@@ -159,6 +162,7 @@ void loop() {
     os_runloop_once();
 }
 }
+//PH sketch from DFrobot https://www.dfrobot.com/wiki/index.php/PH_meter(SKU:_SEN0161)
 double avergearray(int* arr, int number) {
   int i;
   int max, min;
