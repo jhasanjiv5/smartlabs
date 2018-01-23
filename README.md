@@ -14,3 +14,4 @@
 13.  Once the peers are connected data synchronization started can be seen on the lightclient
 14.  Console in TTN gives detailed information about incoming traffic (https://console.thethingsnetwork.org)
 15.  Login to the Web application to update the data and standards using simple formsadded on the web pages.  The incoming data updates can be seen without authen-tication
+# Use the comapnion repository to install Ethereum Light Client on the Lora Gateway or Raspberry Pi 3 (https://github.com/jhasanjiv5/smartlabslightclient.git) 
