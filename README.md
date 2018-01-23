@@ -1,4 +1,4 @@
-# smartlabs
+# Smart Labs
 # Pollution monitoring System using Smart Contracts
 # The system is created to help secure the data received from the pollution detection sensor to keep them trustworthy.
 #Installation can be done by following the steps on Mac environment mentioned below:
