@@ -13,7 +13,7 @@
 #include "MQ135.h"
 #define ArrayLenth  40
 #define samplingInterval 20
-#define Offset 0.00
+#define Offset -1.41 // reset the offset for getting 7.00 PH before taking the actual measures
 #define SensorPin A3
 #define printInterval 800
 MQ135 gasSensor = MQ135(0);
