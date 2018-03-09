@@ -102,7 +102,7 @@ contract setStandards{
     function save(bytes32 Country,bytes32 Location,bytes32 deviceID,uint16 x11,uint16 x21,uint16 x31,uint16 x41) public returns(bool success)
     {
         bool i=compare(x11,x21,x31,x41);
-        //if(i==false){//uncomment this line for storing only the violated data
+        if(i==false){//comment this line for storing all the data
         data[index.length].deviceID=deviceID;
         data[index.length].Country=Country;
         data[index.length].Location=Location;
@@ -112,7 +112,7 @@ contract setStandards{
         data[index.length].PH=x41;
         cdata[Country].flag=i; 
         index.push(index.length);
-        //}//uncomment this line for storing only the violated data
+        }//comment this line for storing all the data
         return true;
         
     }
